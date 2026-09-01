@@ -3,4 +3,4 @@ packages:
   - "."
 
 overrides:
-  react-native-screens: "4.15.4"
+  react-native-screens: "4.24.0"
