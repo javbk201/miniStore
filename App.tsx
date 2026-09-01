@@ -8,6 +8,7 @@ import { EvaIconsPack } from '@ui-kitten/eva-icons'
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components'
 import { NavigationContainer } from '@react-navigation/native'
 import { TabBarNavigator } from './src/navigation/TabBarNavigator'
+import { ErrorBoundary } from './src/components'
 
 function App() {
 	const isDarkMode = useColorScheme() === 'dark';
@@ -17,7 +18,9 @@ function App() {
 			<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 			<IconRegistry icons={EvaIconsPack} />
 			<ApplicationProvider {...eva} theme={eva.light}>
-				<AppContent />
+				<ErrorBoundary>
+					<AppContent />
+				</ErrorBoundary>
       		</ApplicationProvider>
 		</SafeAreaProvider>
 	);

@@ -1,7 +1,7 @@
 export interface Category {
-  slug: string;
-  name: string;
-  url: string;
+	slug: string
+	name: string
+	url: string
 }
 
-export type CategorySlugList = string[];
+export type CategorySlugList = string[]

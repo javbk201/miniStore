@@ -1,10 +1,8 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 import { Animated, StyleSheet, ViewStyle } from 'react-native'
 import { SkeletonHookProps, SkeletonProps } from './Skeleton.types'
 
-export const useSkeleton = (
-	props: SkeletonProps
-): SkeletonHookProps => {
+export const useSkeleton = (props: SkeletonProps): SkeletonHookProps => {
 	const shine = useRef(new Animated.Value(0)).current
 
 	useEffect(() => {

@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from 'react-native'
 
 export const useProductsStyles = () => {
-    const styles = StyleSheet.create({})
+	const styles = StyleSheet.create({})
 
-    return styles
+	return styles
 }

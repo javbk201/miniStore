@@ -1,4 +1,4 @@
-import { useWindowDimensions } from "react-native"
+import { useWindowDimensions } from 'react-native'
 
 interface DimensionsHook {
 	widthP: (percentage: number) => number
