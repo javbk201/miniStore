@@ -1,0 +1,6 @@
+nodeLinker: hoisted
+packages:
+  - "."
+
+overrides:
+  react-native-screens: "4.15.4"
