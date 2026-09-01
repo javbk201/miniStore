@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 
-export const FavoritesScreen = () => {
+export const FavoritesScreen = (): React.JSX.Element => {
 	return (
 		<View>
 			<Text>Favorites</Text>
