@@ -3,8 +3,11 @@ import {
 	SafeAreaProvider,
 	useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import * as eva from '@ui-kitten/eva'
+import { EvaIconsPack } from '@ui-kitten/eva-icons'
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components'
 import { NavigationContainer } from '@react-navigation/native'
-import { TabBarNavigator } from './src/navigation/TabBarNavigator';
+import { TabBarNavigator } from './src/navigation/TabBarNavigator'
 
 function App() {
 	const isDarkMode = useColorScheme() === 'dark';
@@ -12,7 +15,10 @@ function App() {
 	return (
 		<SafeAreaProvider>
 			<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-			<AppContent />
+			<IconRegistry icons={EvaIconsPack} />
+			<ApplicationProvider {...eva} theme={eva.light}>
+				<AppContent />
+      		</ApplicationProvider>
 		</SafeAreaProvider>
 	);
 }
