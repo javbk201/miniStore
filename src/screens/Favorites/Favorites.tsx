@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export const Favorites = () => {
+export const FavoritesScreen = () => {
   return (
     <View>
       <Text>Favorites</Text>
