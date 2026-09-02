@@ -6,7 +6,25 @@ export const useProductDetailsStyles = () => {
 	const styles = StyleSheet.create({
 		container: {
 			flex: 1,
-			backgroundColor: '#FFFFFF'
+			backgroundColor: '#eae9e9',
+		},
+		contentWrapper: {
+			flex: 1
+		},
+		loadingOverlay: {
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			right: 0,
+			bottom: 0,
+			backgroundColor: '#eae9e9',
+			paddingHorizontal: widthP(4.26),
+			paddingTop: heightP(2),
+		},
+		skeletonBody: {
+			paddingHorizontal: widthP(5.3),
+			paddingTop: heightP(2),
+			gap: heightP(1.5)
 		},
 		carouselWrapper: {
 			position: 'relative'
@@ -51,6 +69,21 @@ export const useProductDetailsStyles = () => {
 		},
 		ratingRow: {
 			marginBottom: heightP(1.5)
+		},
+		ratingHeader: {
+			flexDirection: 'row',
+			alignItems: 'baseline',
+			justifyContent: 'space-between',
+			marginBottom: heightP(0.7)
+		},
+		ratingLabel: {
+			fontSize: 13,
+			fontWeight: '700',
+			color: '#1A1A1A'
+		},
+		ratingDetail: {
+			fontSize: 12,
+			color: '#9A9A9A'
 		},
 		priceRow: {
 			flexDirection: 'row',

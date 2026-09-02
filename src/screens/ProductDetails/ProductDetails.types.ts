@@ -25,4 +25,9 @@ export interface UseProductDetailResult {
 	hasDiscount: boolean
 	formattedDiscountedPrice: string
 	formattedOriginalPrice: string
+	// Gates the full-screen skeleton overlay: reset to false every time the
+	// Detalles tab gains focus, flipped to true once the carousel's first
+	// image reports it has finished loading.
+	isContentReady: boolean
+	onFirstImageLoad: () => void
 }

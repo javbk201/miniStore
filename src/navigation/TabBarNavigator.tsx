@@ -34,7 +34,15 @@ export const TabBarNavigator = (): React.JSX.Element => {
 			})}
 		>
 			<Tab.Screen name="Productos" component={ProductsScreen} />
-			<Tab.Screen name="Detalles" component={ProductDetailsScreen} />
+			<Tab.Screen
+				name="Detalles"
+				component={ProductDetailsScreen}
+				listeners={({ navigation }) => ({
+					tabPress: () => {
+						navigation.setParams({ product: undefined })
+					}
+				})}
+			/>
 			<Tab.Screen name="Favoritos" component={FavoritesScreen} />
 		</Tab.Navigator>
 	)

@@ -23,7 +23,7 @@ export const ProductsScreen = (): React.JSX.Element => {
 	} = useProducts()
 	const styles = useProductsStyles()
 	return (
-		<SafeAreaView style={styles.container}>
+		<SafeAreaView style={styles.container} edges={['top']}>
 			{/* Header Screen */}
 			<Text category="h1">Productos</Text>
 			{/* Search bar */}

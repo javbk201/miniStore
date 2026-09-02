@@ -1,5 +1,9 @@
-import { useCallback } from 'react'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useCallback, useState } from 'react'
+import {
+	useFocusEffect,
+	useNavigation,
+	useRoute
+} from '@react-navigation/native'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { useGetProductByIdQuery } from './ProductDetails.api'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
@@ -24,6 +28,22 @@ export const useProductDetail = (): UseProductDetailResult => {
 	)
 
 	const product = data ?? initialProduct
+
+	const [isContentReady, setIsContentReady] = useState(false)
+
+	useFocusEffect(
+		useCallback(() => {
+			if (!product) {
+				setIsContentReady(false)
+			} else {
+				setIsContentReady(true)
+			}
+		}, [])
+	)
+
+	const onFirstImageLoad = useCallback(() => {
+		setIsContentReady(true)
+	}, [])
 
 	const dispatch = useAppDispatch()
 	const isFavorite = useAppSelector(selectIsFavorite(product?.id ?? -1))
@@ -56,6 +76,8 @@ export const useProductDetail = (): UseProductDetailResult => {
 			: '',
 		formattedOriginalPrice: product
 			? currencyFormatter(product.price).format(product.price)
-			: ''
+			: '',
+		isContentReady,
+		onFirstImageLoad
 	}
 }
