@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, TouchableOpacity, View } from 'react-native'
-import { Button, Icon, Text } from '@ui-kitten/components'
+import { Button, Icon, Layout, Text } from '@ui-kitten/components'
 import {
 	ImageCarousel,
 	FavoriteButton,
@@ -15,7 +15,7 @@ import { useProductDetailsStyles } from './styles'
 const RETRY_LABEL = 'Reintentar'
 
 export const ProductDetailsScreen = (): React.JSX.Element => {
-	const styles = useProductDetailsStyles()
+	const { styles, theme } = useProductDetailsStyles()
 	const {
 		product,
 		isError,
@@ -57,7 +57,7 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 						>
 							<Icon
 								name="arrow-back"
-								fill="#1A1A1A"
+								fill={theme['color-primary-500']}
 								style={styles.backIcon}
 							/>
 						</TouchableOpacity>
@@ -137,20 +137,20 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 				</ScrollView>
 
 				{!isContentReady && (
-					<View style={styles.loadingOverlay}>
+					<Layout style={styles.loadingOverlay}>
 						<Skeleton
-							style={{ paddingHorizontal: 20 }}
+							style={styles.skeletonSpacing}
 							height={320}
 							borderRadius={24}
 						/>
-						<View style={styles.skeletonBody}>
+						<Layout style={styles.skeletonBody}>
 							<Skeleton width="70%" height={22} />
 							<Skeleton width="35%" height={12} />
 							<Skeleton width="50%" height={16} />
 							<Skeleton width="40%" height={26} />
 							<Skeleton width="100%" height={70} />
-						</View>
-					</View>
+						</Layout>
+					</Layout>
 				)}
 			</View>
 		</ThemedBox>

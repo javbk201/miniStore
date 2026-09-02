@@ -1,7 +1,6 @@
 import React from 'react'
 import { FlatList, View } from 'react-native'
-import { Button, Layout, Text } from '@ui-kitten/components'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Button, Text } from '@ui-kitten/components'
 import { Product } from '../../domain'
 import {
 	FavoriteListItem,
@@ -14,10 +13,16 @@ import { useFavoritesStyles } from './styles'
 
 const keyExtractor = (item: Product): string => item.id.toString()
 const skeletonKeyExtractor = (item: number): string => `skeleton-${item}`
+const LABEL_BUTTON = 'Ver Productos'
 
 export const FavoritesScreen = (): React.JSX.Element => {
-	const { favorites, isLoading, onRemoveFavorite, onPressFavorite } =
-		useFavorites()
+	const {
+		favorites,
+		isLoading,
+		onRemoveFavorite,
+		onPressFavorite,
+		navigateToProducts
+	} = useFavorites()
 	const styles = useFavoritesStyles()
 
 	return (
@@ -46,7 +51,11 @@ export const FavoritesScreen = (): React.JSX.Element => {
 							<EmptyState
 								title="Aún no tienes favoritos"
 								description="Los productos que marques con el corazón aparecerán aquí"
-								children={<Button>Ver Productos</Button>}
+								children={
+									<Button onPress={navigateToProducts}>
+										{LABEL_BUTTON}
+									</Button>
+								}
 							/>
 						</View>
 					}

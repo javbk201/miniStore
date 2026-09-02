@@ -13,4 +13,5 @@ export interface UseFavoritesResult {
 	isLoading: boolean
 	onRemoveFavorite: (productId: number) => void
 	onPressFavorite: (product: Product) => void
+	navigateToProducts: () => void
 }

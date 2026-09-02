@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Animated, StyleSheet, ViewStyle } from 'react-native'
+import { Animated, StyleSheet } from 'react-native'
 import { SkeletonHookProps, SkeletonProps } from './Skeleton.types'
 
 export const useSkeleton = (props: SkeletonProps): SkeletonHookProps => {
@@ -33,6 +33,7 @@ export const useSkeleton = (props: SkeletonProps): SkeletonHookProps => {
 
 	const styles = StyleSheet.flatten([
 		{
+			// eslint-disable-next-line react-hooks/refs -- `shine` is an Animated.Value, not a DOM ref; native driver consumes the interpolation node outside React's render cycle
 			opacity: shine.interpolate({
 				inputRange: [0, 1],
 				outputRange: [0.5, 1]

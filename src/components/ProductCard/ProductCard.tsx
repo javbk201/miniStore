@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import { Icon, Text } from '@ui-kitten/components'
+import { Icon, Text, useTheme } from '@ui-kitten/components'
 import FastImage from '@d11/react-native-fast-image'
 import { ProductCardProps } from './ProductCard.types'
 import { useProductCard } from './useProductCard'
@@ -11,6 +11,7 @@ export const ProductCard = ({
 	onPress
 }: ProductCardProps): React.JSX.Element => {
 	const styles = useProductCardStyles()
+	const theme = useTheme()
 	const {
 		formattedDiscountedPrice,
 		formattedOriginalPrice,
@@ -71,7 +72,7 @@ export const ProductCard = ({
 				<View style={styles.favoriteBadge}>
 					<Icon
 						name="heart"
-						fill="#EF4444"
+						fill={theme['color-danger-500']}
 						style={styles.favoriteIcon}
 					/>
 				</View>

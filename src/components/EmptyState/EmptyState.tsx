@@ -8,7 +8,7 @@ export const EmptyState = ({
 	title,
 	description,
 	children
-}: EmptyStateProps) => {
+}: EmptyStateProps): React.JSX.Element => {
 	const styles = useEmptyStateStyles()
 	return (
 		<View style={styles.container} accessibilityRole="text">

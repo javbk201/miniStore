@@ -1,6 +1,6 @@
 import { ActivityIndicator, FlatList, View } from 'react-native'
 import React from 'react'
-import { Button, Input, Layout, Text } from '@ui-kitten/components'
+import { Button, Text } from '@ui-kitten/components'
 import { useProducts } from './useProducts'
 import { useProductsStyles } from './styles'
 import { SearchBar, Skeleton, ThemedBox } from '../../components'
@@ -36,9 +36,9 @@ export const ProductsScreen = (): React.JSX.Element => {
 						data={[1, 2, 3, 4, 5]}
 						keyExtractor={item => `skeleton-${item}`}
 						horizontal
-						contentContainerStyle={{ gap: 8 }}
+						contentContainerStyle={styles.gap8}
 						showsHorizontalScrollIndicator={false}
-						renderItem={({ item }) => (
+						renderItem={_ => (
 							<Skeleton
 								width={56}
 								height={32}
@@ -50,7 +50,7 @@ export const ProductsScreen = (): React.JSX.Element => {
 					<FlatList
 						data={categoriesWithAll}
 						horizontal
-						contentContainerStyle={{ gap: 8 }}
+						contentContainerStyle={styles.gap8}
 						showsHorizontalScrollIndicator={false}
 						renderItem={({ item }) => (
 							<Button
@@ -77,16 +77,15 @@ export const ProductsScreen = (): React.JSX.Element => {
 			{productLoading ? (
 				<FlatList
 					data={[1, 2, 3, 4, 5]}
-					style={{ paddingTop: 16 }}
-					contentContainerStyle={{ gap: 8, alignItems: 'center' }}
-					renderItem={({ item }) => (
-						<Skeleton width={345} height={200} />
-					)}
+					style={styles.productContainer}
+					showsVerticalScrollIndicator={false}
+					contentContainerStyle={styles.skeletonProducts}
+					renderItem={_ => <Skeleton width={345} height={200} />}
 				/>
 			) : (
 				<FlatList
 					data={productsData?.products}
-					style={{ paddingTop: 16 }}
+					style={styles.productContainer}
 					showsVerticalScrollIndicator={false}
 					renderItem={({ item }) => (
 						<ProductCard product={item} onPress={onPressProduct} />

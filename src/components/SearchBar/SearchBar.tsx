@@ -3,21 +3,25 @@ import { TouchableOpacity } from 'react-native'
 import { Input, Icon, IconProps } from '@ui-kitten/components'
 import { SearchBarProps } from './SearchBar.types'
 import { useSearchBar } from './useSearchBar'
+import { useSearchBarStyles } from './styles'
 
-const SearchIcon = (props: IconProps) => <Icon {...props} name="search" />
+const SearchIcon = (props: IconProps): React.JSX.Element => (
+	<Icon {...props} name="search" />
+)
 
 export const SearchBar = ({
 	onSearch,
 	placeholder = 'Buscar productos...',
 	debounceMs = 300
-}: SearchBarProps) => {
+}: SearchBarProps): React.JSX.Element => {
+	const styles = useSearchBarStyles()
 	const { rawValue, handleChangeText, handleClear, showClearButton } =
 		useSearchBar({
 			onSearch,
 			debounceMs
 		})
 
-	const renderClearIcon = (props: IconProps) =>
+	const renderClearIcon = (props: IconProps): React.JSX.Element =>
 		showClearButton ? (
 			<TouchableOpacity onPress={handleClear}>
 				<Icon {...props} name="close-circle" />
@@ -29,19 +33,7 @@ export const SearchBar = ({
 	return (
 		<Input
 			value={rawValue}
-			style={{
-				borderRadius: 24,
-				borderWidth: 1,
-				borderColor: '#ccc',
-				shadowColor: '#000',
-				shadowOffset: {
-					width: 0,
-					height: 2
-				},
-				shadowOpacity: 0.1,
-				shadowRadius: 4,
-				elevation: 2
-			}}
+			style={styles.inputStyle}
 			onChangeText={handleChangeText}
 			placeholder={placeholder}
 			accessoryLeft={SearchIcon}

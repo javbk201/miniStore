@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import Animated from 'react-native-reanimated'
-import { Icon } from '@ui-kitten/components'
+import { Icon, useTheme } from '@ui-kitten/components'
 import { FavoriteButtonProps } from './FavoriteButton.types'
 import { useFavoriteButton } from './useFavoriteButton'
 import { useFavoriteButtonStyles } from './styles'
@@ -11,6 +11,7 @@ export const FavoriteButton = ({
 	onPress
 }: FavoriteButtonProps): React.JSX.Element => {
 	const styles = useFavoriteButtonStyles()
+	const theme = useTheme()
 	const { animatedStyle, handlePress } = useFavoriteButton({ onPress })
 
 	return (
@@ -25,7 +26,11 @@ export const FavoriteButton = ({
 			<Animated.View style={[styles.container, animatedStyle]}>
 				<Icon
 					name={isFavorite ? 'heart' : 'heart-outline'}
-					fill={isFavorite ? '#EF4444' : '#1A1A1A'}
+					fill={
+						isFavorite
+							? theme['color-danger-500']
+							: theme['color-danger-500']
+					}
 					style={styles.icon}
 				/>
 			</Animated.View>

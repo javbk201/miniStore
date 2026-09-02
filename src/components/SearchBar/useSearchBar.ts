@@ -1,15 +1,14 @@
 import { useState, useEffect, useCallback } from 'react'
-import { SearchBarProps } from './SearchBar.types'
+import { SearchBarProps, UseSearchBar } from './SearchBar.types'
 import { useDebounce } from '../../hook'
 
 export const useSearchBar = ({
 	onSearch,
 	debounceMs = 300
-}: Pick<SearchBarProps, 'onSearch' | 'debounceMs'>) => {
+}: Pick<SearchBarProps, 'onSearch' | 'debounceMs'>): UseSearchBar => {
 	const [rawValue, setRawValue] = useState('')
 	const debouncedValue = useDebounce(rawValue, debounceMs)
 
-	// Dispara la búsqueda solo cuando el valor debounceado cambia, no en cada tecla
 	useEffect(() => {
 		onSearch(debouncedValue)
 	}, [debouncedValue, onSearch])

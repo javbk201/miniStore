@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native'
 import { useDimensions } from '../../hook'
+import { useTheme } from '@ui-kitten/components'
 
 export const useProductDetailsStyles = () => {
 	const { widthP, heightP } = useDimensions()
+	const theme = useTheme()
 	const styles = StyleSheet.create({
 		container: {
 			flex: 1
@@ -16,7 +18,6 @@ export const useProductDetailsStyles = () => {
 			left: 0,
 			right: 0,
 			bottom: 0,
-			backgroundColor: '#eae9e9',
 			paddingHorizontal: widthP(4.26),
 			paddingTop: heightP(2)
 		},
@@ -25,6 +26,7 @@ export const useProductDetailsStyles = () => {
 			paddingTop: heightP(2),
 			gap: heightP(1.5)
 		},
+		skeletonSpacing: { paddingHorizontal: 20 },
 		carouselWrapper: {
 			position: 'relative'
 		},
@@ -105,7 +107,7 @@ export const useProductDetailsStyles = () => {
 			marginBottom: heightP(3)
 		},
 		tagPill: {
-			backgroundColor: '#F5F5F7',
+			backgroundColor: theme['color-info-100'],
 			borderRadius: 20,
 			paddingHorizontal: widthP(3),
 			paddingVertical: heightP(0.7)
@@ -135,5 +137,8 @@ export const useProductDetailsStyles = () => {
 			minWidth: widthP(22)
 		}
 	})
-	return styles
+	return {
+		styles,
+		theme
+	}
 }

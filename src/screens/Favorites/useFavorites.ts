@@ -13,10 +13,6 @@ export const useFavorites = (): UseFavoritesResult => {
 	const navigation = useNavigation<FavoritesNavigationProp>()
 	const favorites = useAppSelector(selectFavoriteProducts)
 
-	// Favorites come from Redux, already hydrated synchronously from MMKV before
-	// the first render — there's no real async loading here. This just gives the
-	// screen one skeleton frame on mount for visual consistency with Products/
-	// ProductDetails, rather than popping straight to content with no transition.
 	const [isLoading, setIsLoading] = useState(true)
 	useEffect(() => {
 		// eslint-disable-next-line react-hooks/set-state-in-effect -- intentional one-time mount flip (see comment above), not a data-fetch dependency chain the rule is meant to catch
@@ -30,6 +26,10 @@ export const useFavorites = (): UseFavoritesResult => {
 		[dispatch]
 	)
 
+	const navigateToProducts = (): void => {
+		navigation.navigate('Productos', undefined)
+	}
+
 	const onPressFavorite = useCallback(
 		(product: Product) => {
 			navigation.navigate('Detalles', { product })
@@ -37,5 +37,11 @@ export const useFavorites = (): UseFavoritesResult => {
 		[navigation]
 	)
 
-	return { favorites, isLoading, onRemoveFavorite, onPressFavorite }
+	return {
+		favorites,
+		isLoading,
+		onRemoveFavorite,
+		onPressFavorite,
+		navigateToProducts
+	}
 }

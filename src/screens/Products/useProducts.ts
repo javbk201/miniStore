@@ -8,11 +8,11 @@ import {
 } from './Products.api'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { Product } from '../../domain'
-import { ProductsNavigationProp } from './products.types'
+import { ProductsNavigationProp, UseProductsResult } from './products.types'
 
 const PAGE_SIZE = 20
 
-export const useProducts = () => {
+export const useProducts = (): UseProductsResult => {
 	const navigation = useNavigation<ProductsNavigationProp>()
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(
 		null

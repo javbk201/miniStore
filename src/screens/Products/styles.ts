@@ -9,6 +9,9 @@ export const useProductsStyles = () => {
 			backgroundColor: '#eae9e9',
 			paddingHorizontal: 16
 		},
+		gap8: {
+			gap: 8
+		},
 		inputContainer: {
 			paddingVertical: 12
 		},
@@ -20,7 +23,9 @@ export const useProductsStyles = () => {
 		categoryItem: {
 			borderRadius: 90,
 			borderWidth: 1
-		}
+		},
+		productContainer: { paddingTop: 16 },
+		skeletonProducts: { gap: 8, alignItems: 'center' }
 	})
 
 	return styles

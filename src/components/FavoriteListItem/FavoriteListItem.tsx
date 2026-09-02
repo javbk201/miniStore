@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
-import { Icon, Layout } from '@ui-kitten/components'
+import { TouchableOpacity } from 'react-native'
+import { Icon, Layout, useTheme } from '@ui-kitten/components'
 import { GestureDetector } from 'react-native-gesture-handler'
 import Animated from 'react-native-reanimated'
 import { ProductCard } from '../ProductCard'
@@ -14,6 +14,7 @@ const FavoriteListItemComponent = ({
 	onDelete
 }: FavoriteListItemProps): React.JSX.Element => {
 	const styles = useFavoriteListItemStyles()
+	const theme = useTheme()
 	const { panGesture, animatedStyle, handleDelete } = useFavoriteListItem({
 		product,
 		onDelete
@@ -30,7 +31,7 @@ const FavoriteListItemComponent = ({
 				>
 					<Icon
 						name="trash-2-outline"
-						fill="#FFFFFF"
+						fill={theme['color-primary-100']}
 						style={styles.swipeActionIcon}
 					/>
 				</TouchableOpacity>

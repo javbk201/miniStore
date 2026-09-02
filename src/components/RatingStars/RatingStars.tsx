@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Icon } from '@ui-kitten/components'
+import { Icon, useTheme } from '@ui-kitten/components'
 import { RatingStarsProps } from './RatingStars.types'
 import { useRatingStars } from './useRatingStars'
 import { useRatingStarsStyles } from './styles'
@@ -10,6 +10,7 @@ export const RatingStars = ({
 	size = 16
 }: RatingStarsProps): React.JSX.Element => {
 	const styles = useRatingStarsStyles(size)
+	const theme = useTheme()
 	const { stars } = useRatingStars(rating)
 
 	return (
@@ -21,7 +22,7 @@ export const RatingStars = ({
 				<Icon
 					key={index}
 					name={filled ? 'star' : 'star-outline'}
-					fill="#F5A623"
+					fill={theme['color-warning-600']}
 					style={styles.icon}
 				/>
 			))}

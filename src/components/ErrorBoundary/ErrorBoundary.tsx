@@ -8,6 +8,8 @@ interface ErrorFallbackProps {
 	resetError: () => void
 }
 
+const RETRY_LABEL = 'Reintentar'
+
 const ErrorFallback = ({
 	error,
 	resetError
@@ -23,7 +25,7 @@ const ErrorFallback = ({
 				{error.message || 'Ocurrió un error inesperado.'}
 			</Text>
 			<Button style={styles.button} onPress={resetError}>
-				Reintentar
+				{RETRY_LABEL}
 			</Button>
 		</Layout>
 	)
@@ -53,7 +55,7 @@ export class ErrorBoundary extends Component<
 		this.setState({ error: null })
 	}
 
-	render() {
+	render(): React.ReactNode {
 		const { error } = this.state
 		const { children, fallback } = this.props
 
