@@ -18,7 +18,7 @@ export const useFavoriteButtonStyles = () => {
 			shadowRadius: 4,
 			elevation: 3
 		},
-		icon: { 
+		icon: {
 			width: widthP(6.9),
 			height: widthP(6.9)
 		}

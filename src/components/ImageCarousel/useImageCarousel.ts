@@ -1,4 +1,7 @@
-import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
+import {
+	useAnimatedScrollHandler,
+	useSharedValue
+} from 'react-native-reanimated'
 import { useDimensions } from '../../hook'
 import { UseImageCarouselResult } from './ImageCarousel.types'
 

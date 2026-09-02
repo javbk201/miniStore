@@ -1,12 +1,15 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { Icon } from '@ui-kitten/components'
-import FastImage from "@d11/react-native-fast-image"
+import FastImage from '@d11/react-native-fast-image'
 import { ProductCardProps } from './ProductCard.types'
 import { useProductCard } from './useProductCard'
 import { useProductCardStyles } from './styles'
 
-export const ProductCard = ({ product, onPress }: ProductCardProps): React.JSX.Element => {
+export const ProductCard = ({
+	product,
+	onPress
+}: ProductCardProps): React.JSX.Element => {
 	const styles = useProductCardStyles()
 	const {
 		formattedDiscountedPrice,
@@ -25,11 +28,11 @@ export const ProductCard = ({ product, onPress }: ProductCardProps): React.JSX.E
 		>
 			<View style={styles.imageWrapper}>
 				<FastImage
-					source={{ 
+					source={{
 						uri: product.thumbnail,
 						priority: FastImage.priority.normal,
 						cache: FastImage.cacheControl.immutable
-					 }}
+					}}
 					style={styles.image}
 					resizeMode={FastImage.resizeMode.contain}
 				/>

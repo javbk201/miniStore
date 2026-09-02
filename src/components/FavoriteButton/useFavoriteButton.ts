@@ -4,7 +4,10 @@ import {
 	withSequence,
 	withSpring
 } from 'react-native-reanimated'
-import { FavoriteButtonProps, UseFavoriteButtonResult } from './FavoriteButton.types'
+import {
+	FavoriteButtonProps,
+	UseFavoriteButtonResult
+} from './FavoriteButton.types'
 
 export const useFavoriteButton = ({
 	onPress
@@ -16,9 +19,7 @@ export const useFavoriteButton = ({
 	}))
 
 	const handlePress = (): void => {
-		 
-		// designed to be mutated via `.value =` to drive UI-thread animations; this is not
-		// a React ref/state mutation and the rule doesn't know about Reanimated's contract.
+		// eslint-disable-next-line react-hooks/immutability -- Reanimated SharedValue.value assignment drives UI-thread animations; it is not a React ref/state mutation.
 		scale.value = withSequence(
 			withSpring(1.3, { damping: 6, stiffness: 300 }),
 			withSpring(1, { damping: 6, stiffness: 300 })

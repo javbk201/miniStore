@@ -18,7 +18,9 @@ export const FavoriteButton = ({
 			onPress={handlePress}
 			style={styles.touchable}
 			accessibilityRole="button"
-			accessibilityLabel={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+			accessibilityLabel={
+				isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'
+			}
 		>
 			<Animated.View style={[styles.container, animatedStyle]}>
 				<Icon
