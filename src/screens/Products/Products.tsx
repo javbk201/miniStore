@@ -1,23 +1,90 @@
-import { ScrollView, Text, View } from 'react-native'
+import { ActivityIndicator, FlatList, View } from 'react-native'
 import React from 'react'
-import { Input } from '@ui-kitten/components'
+import { Button, Input, Layout, Text } from '@ui-kitten/components'
 import { useProducts } from './useProducts'
+import { useProductsStyles } from './styles'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { SearchBar, Skeleton } from '../../components'
+import { ProductCard } from '../../components/ProductCard/ProductCard'
 
 export const ProductsScreen = (): React.JSX.Element => {
-	useProducts()
+	const {
+		productsData,
+		productLoading,
+		isFetchingMore,
+		categoriesWithAll,
+		categoriesLoading,
+		selectedCategory,
+		onPressCategory,
+		handleSearch,
+		loadMore
+	} = useProducts()
+	const styles = useProductsStyles()
 	return (
-		<View>
+		<SafeAreaView style={styles.container}>
 			{/* Header Screen */}
-			<View>
-				<Text>ProductsScreen</Text>
-			</View>
+			<Text category="h1">Productos</Text>
 			{/* Search bar */}
-			<View>
-				<Input placeholder="Search" />
+			<View style={styles.inputContainer}>
+				<SearchBar onSearch={handleSearch} />
 			</View>
 			{/* Filters */}
-			<ScrollView horizontal showsHorizontalScrollIndicator={false} />
+			<View style={styles.categoryContainer}>
+				{categoriesLoading ? (
+					<FlatList
+						data={[1, 2, 3, 4, 5]}
+						keyExtractor={item => `skeleton-${item}`}
+						renderItem={({ item }) => <Skeleton />}
+					/>
+				) : (
+					<FlatList
+						data={categoriesWithAll}
+						horizontal
+						contentContainerStyle={{ gap: 8 }}
+						showsHorizontalScrollIndicator={false}
+						renderItem={({ item }) => (
+							<Button
+								appearance="filled"
+								status={
+										(selectedCategory === item.slug) || (item.slug === 'all' && selectedCategory === null)
+										? 'primary'
+										: 'basic'
+								}
+								size="small"
+								style={styles.categoryItem}
+								onPress={() => onPressCategory(item.slug)}
+							>
+								{item.name}
+							</Button>
+						)}
+						keyExtractor={item => item.slug}
+					/>
+				)}
+			</View>
 			{/* List of products */}
-		</View>
+			{productLoading ? (
+				<FlatList
+					data={[1, 2, 3, 4, 5]}
+					renderItem={({ item }) => <Skeleton />}
+				/>
+			) : (
+				<FlatList
+					data={productsData?.products}
+					style={{ paddingTop: 16 }}
+					showsVerticalScrollIndicator={false}
+					renderItem={({ item }) => (
+						<ProductCard product={item} onPress={() => {}} />
+					)}
+					keyExtractor={item => item.id.toString()}
+					onEndReached={loadMore}
+					onEndReachedThreshold={0.5}
+					ListFooterComponent={
+						isFetchingMore 
+						? <ActivityIndicator size="small" /> 
+						: null
+					}
+				/>
+			)}
+		</SafeAreaView>
 	)
 }
