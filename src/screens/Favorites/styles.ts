@@ -5,11 +5,10 @@ import { useDimensions } from '../../hook'
 export const useFavoritesStyles = () => {
 	const { heightP } = useDimensions()
 	const theme = useTheme()
-	
+
 	const styles = StyleSheet.create({
 		container: {
 			flex: 1,
-			backgroundColor: theme['background-basic-color-1'],
 			paddingHorizontal: 16
 		},
 		listContent: {

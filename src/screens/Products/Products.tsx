@@ -38,7 +38,13 @@ export const ProductsScreen = (): React.JSX.Element => {
 						horizontal
 						contentContainerStyle={{ gap: 8 }}
 						showsHorizontalScrollIndicator={false}
-						renderItem={({ item }) => <Skeleton width={56} height={32} borderRadius={90} />}
+						renderItem={({ item }) => (
+							<Skeleton
+								width={56}
+								height={32}
+								borderRadius={90}
+							/>
+						)}
 					/>
 				) : (
 					<FlatList

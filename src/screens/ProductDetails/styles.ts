@@ -54,7 +54,7 @@ export const useProductDetailsStyles = () => {
 			paddingTop: heightP(2)
 		},
 		title: {
-			fontSize: 22,
+			fontSize: 22
 		},
 		category: {
 			fontSize: 12,

@@ -5,9 +5,9 @@ import { ThemedBoxProps } from './ThemedBox.types'
 
 export const ThemedBox = ({ children }: ThemedBoxProps) => {
 	const styles = useThemedBox()
-  return (
-	<SafeAreaView style={styles.container} edges={['top']}>
-		{children}
-	</SafeAreaView>
-  )
+	return (
+		<SafeAreaView style={styles.container} edges={['top']}>
+			{children}
+		</SafeAreaView>
+	)
 }

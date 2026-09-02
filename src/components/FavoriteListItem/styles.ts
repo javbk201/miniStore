@@ -27,8 +27,7 @@ export const useFavoriteListItemStyles = () => {
 			height: widthP(7)
 		},
 		cardStack: {
-			position: 'relative',
-			backgroundColor: '#eae9e9'
+			position: 'relative'
 		},
 		deleteButtonOverlay: {
 			position: 'absolute',

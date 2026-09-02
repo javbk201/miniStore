@@ -1,5 +1,5 @@
-import { useTheme } from "@ui-kitten/components"
-import { StyleSheet } from "react-native"
+import { useTheme } from '@ui-kitten/components'
+import { StyleSheet } from 'react-native'
 
 export const useThemedBox = () => {
 	const theme = useTheme()

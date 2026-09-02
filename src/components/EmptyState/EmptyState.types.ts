@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 export interface EmptyStateProps {
 	title: string
-	description?: string,
+	description?: string
 	children?: ReactNode
 }
