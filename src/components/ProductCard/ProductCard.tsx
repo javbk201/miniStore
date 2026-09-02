@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
-import { Icon } from '@ui-kitten/components'
+import { View, TouchableOpacity } from 'react-native'
+import { Icon, Text } from '@ui-kitten/components'
 import FastImage from '@d11/react-native-fast-image'
 import { ProductCardProps } from './ProductCard.types'
 import { useProductCard } from './useProductCard'
@@ -49,7 +49,7 @@ export const ProductCard = ({
 				<Text style={styles.category}>
 					{product.category.toUpperCase()}
 				</Text>
-
+				{/* Price Text */}
 				<View style={styles.priceRow}>
 					<Text style={styles.discountedPrice}>
 						{formattedDiscountedPrice}
@@ -61,7 +61,7 @@ export const ProductCard = ({
 					)}
 				</View>
 			</View>
-
+			{/* floating Elements*/}
 			{hasDiscount && (
 				<View style={styles.discountBadge}>
 					<Text style={styles.discountText}>{discountLabel}</Text>
