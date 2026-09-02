@@ -5,8 +5,7 @@ export const useProductDetailsStyles = () => {
 	const { widthP, heightP } = useDimensions()
 	const styles = StyleSheet.create({
 		container: {
-			flex: 1,
-			backgroundColor: '#eae9e9',
+			flex: 1
 		},
 		contentWrapper: {
 			flex: 1
@@ -19,7 +18,7 @@ export const useProductDetailsStyles = () => {
 			bottom: 0,
 			backgroundColor: '#eae9e9',
 			paddingHorizontal: widthP(4.26),
-			paddingTop: heightP(2),
+			paddingTop: heightP(2)
 		},
 		skeletonBody: {
 			paddingHorizontal: widthP(5.3),

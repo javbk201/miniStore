@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, TouchableOpacity, View } from 'react-native'
-import { Button, Icon, Text } from '@ui-kitten/components'
+import { Button, Icon, Layout, Text } from '@ui-kitten/components'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {
 	ImageCarousel,
@@ -32,11 +32,13 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 
 	if (!product) {
 		return (
-			<SafeAreaView style={styles.container}>
-				<EmptyState
-					title="No hay ningún producto seleccionado"
-					description="Ve a la pestaña Productos y toca un producto para ver su detalle."
-				/>
+			<SafeAreaView edges={['top']}>
+				<Layout style={styles.container}>
+					<EmptyState
+						title="No hay ningún producto seleccionado"
+						description="Ve a la pestaña Productos y toca un producto para ver su detalle."
+					/>
+				</Layout>
 			</SafeAreaView>
 		)
 	}
@@ -74,8 +76,8 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 					{isError && (
 						<View style={styles.errorBanner}>
 							<Text style={styles.errorText}>
-								No se pudo actualizar el producto. Mostrando
-								la última información disponible.
+								No se pudo actualizar el producto. Mostrando la
+								última información disponible.
 							</Text>
 							<Button
 								size="tiny"
@@ -138,7 +140,11 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 
 				{!isContentReady && (
 					<View style={styles.loadingOverlay}>
-						<Skeleton style={{ paddingHorizontal: 20 }} height={320} borderRadius={24} />
+						<Skeleton
+							style={{ paddingHorizontal: 20 }}
+							height={320}
+							borderRadius={24}
+						/>
 						<View style={styles.skeletonBody}>
 							<Skeleton width="70%" height={22} />
 							<Skeleton width="35%" height={12} />
