@@ -7,7 +7,13 @@ export const useImageCarouselStyles = (height: number = 320) => {
 		container: { width: '100%' },
 		slide: { justifyContent: 'center', alignItems: 'center', height },
 		image: { width: '80%', height: '80%' },
-		loadingOverlay: { position: 'absolute', top: 0, left: 0, right: 0, height },
+		loadingOverlay: {
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			right: 0,
+			height
+		},
 		dotsContainer: {
 			flexDirection: 'row',
 			justifyContent: 'center',

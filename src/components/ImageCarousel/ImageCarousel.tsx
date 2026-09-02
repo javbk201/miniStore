@@ -42,7 +42,9 @@ export const ImageCarousel = ({
 							}}
 							style={styles.image}
 							resizeMode={FastImage.resizeMode.contain}
-							onLoadEnd={index === 0 ? onFirstImageLoadEnd : undefined}
+							onLoadEnd={
+								index === 0 ? onFirstImageLoadEnd : undefined
+							}
 						/>
 					</View>
 				)}
