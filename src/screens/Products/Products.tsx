@@ -6,6 +6,7 @@ import { useProductsStyles } from './styles'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { SearchBar, Skeleton } from '../../components'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
+import { EmptyState } from '../../components/EmptyState'
 
 export const ProductsScreen = (): React.JSX.Element => {
 	const {
@@ -75,6 +76,11 @@ export const ProductsScreen = (): React.JSX.Element => {
 					renderItem={({ item }) => (
 						<ProductCard product={item} onPress={() => {}} />
 					)}
+					ListEmptyComponent={() => 
+					<EmptyState 
+						title="No se encontraron productos" 
+						description="Intenta con otro término de búsqueda" />
+					}
 					keyExtractor={item => item.id.toString()}
 					onEndReached={loadMore}
 					onEndReachedThreshold={0.5}

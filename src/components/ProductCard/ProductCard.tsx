@@ -7,6 +7,7 @@ import {
 	TurboModuleRegistry
 } from 'react-native'
 import { Icon } from '@ui-kitten/components'
+import FastImage from "@d11/react-native-fast-image"
 import { ProductCardProps } from './ProductCard.types'
 import { useProductCard } from './useProductCard'
 import { useProductCardStyles } from './styles'
@@ -28,10 +29,13 @@ export const ProductCard = ({ product, onPress }: ProductCardProps) => {
 			accessibilityLabel={`Ver detalle de ${product.title}`}
 		>
 			<View style={styles.imageWrapper}>
-				<Image
-					source={{ uri: product.thumbnail }}
+				<FastImage
+					source={{ 
+						uri: product.thumbnail,
+						priority: FastImage.priority.normal,
+					 }}
 					style={styles.image}
-					resizeMode="contain"
+					resizeMode={FastImage.resizeMode.contain}
 				/>
 			</View>
 

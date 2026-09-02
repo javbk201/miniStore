@@ -6,8 +6,6 @@ export const useEmptyStateStyles = () => {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		paddingVertical: 48,
-		paddingHorizontal: 24,
 		},
 		title: {
 			fontSize: 16,
