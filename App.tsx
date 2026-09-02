@@ -20,7 +20,7 @@ function App() {
 			<SafeAreaProvider>
 				<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 				<IconRegistry icons={EvaIconsPack} />
-				<ApplicationProvider {...eva} theme={eva.light}>
+				<ApplicationProvider {...eva} theme={isDarkMode ? eva.dark : eva.light}>
 					<ErrorBoundary>
 						<AppContent />
 					</ErrorBoundary>

@@ -1,5 +1,12 @@
 module.exports = {
   root: true,
+  // styles.ts hooks only return StyleSheet.create(...) objects; annotating an explicit
+  // return type on them hides the inferred style shape on hover in the editor, which is
+  // more useful here than the enforced-return-type rule.
+  ignorePatterns: [
+    'src/screens/**/styles.ts',
+    'src/components/**/styles.ts'
+  ],
    extends: [
     '@react-native',
     'plugin:@typescript-eslint/recommended',
