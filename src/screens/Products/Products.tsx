@@ -17,6 +17,7 @@ export const ProductsScreen = (): React.JSX.Element => {
 		categoriesLoading,
 		selectedCategory,
 		onPressCategory,
+		onPressProduct,
 		handleSearch,
 		loadMore
 	} = useProducts()
@@ -47,7 +48,9 @@ export const ProductsScreen = (): React.JSX.Element => {
 							<Button
 								appearance="filled"
 								status={
-										(selectedCategory === item.slug) || (item.slug === 'all' && selectedCategory === null)
+									selectedCategory === item.slug ||
+									(item.slug === 'all' &&
+										selectedCategory === null)
 										? 'primary'
 										: 'basic'
 								}
@@ -74,20 +77,21 @@ export const ProductsScreen = (): React.JSX.Element => {
 					style={{ paddingTop: 16 }}
 					showsVerticalScrollIndicator={false}
 					renderItem={({ item }) => (
-						<ProductCard product={item} onPress={() => {}} />
+						<ProductCard product={item} onPress={onPressProduct} />
 					)}
-					ListEmptyComponent={() => 
-					<EmptyState 
-						title="No se encontraron productos" 
-						description="Intenta con otro término de búsqueda" />
-					}
+					ListEmptyComponent={() => (
+						<EmptyState
+							title="No se encontraron productos"
+							description="Intenta con otro término de búsqueda"
+						/>
+					)}
 					keyExtractor={item => item.id.toString()}
 					onEndReached={loadMore}
 					onEndReachedThreshold={0.5}
 					ListFooterComponent={
-						isFetchingMore 
-						? <ActivityIndicator size="small" /> 
-						: null
+						isFetchingMore ? (
+							<ActivityIndicator size="small" />
+						) : null
 					}
 				/>
 			)}

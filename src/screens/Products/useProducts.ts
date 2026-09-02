@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 import {
 	useGetCategoriesQuery,
 	useGetProductsQuery,
@@ -6,10 +7,13 @@ import {
 	useSearchProductsQuery
 } from './Products.api'
 import { skipToken } from '@reduxjs/toolkit/query'
+import { Product } from '../../domain'
+import { ProductsNavigationProp } from './products.types'
 
 const PAGE_SIZE = 20
 
 export const useProducts = () => {
+	const navigation = useNavigation<ProductsNavigationProp>()
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(
 		null
 	)
@@ -52,7 +56,14 @@ export const useProducts = () => {
 	const onPressCategory = useCallback((categorySlug: string) => {
 		setSelectedCategory(categorySlug === 'all' ? null : categorySlug)
 		setSearchQuery('')
-}, [])
+	}, [])
+
+	const onPressProduct = useCallback(
+		(product: Product) => {
+			navigation.navigate('Detalles', { product })
+		},
+		[navigation]
+	)
 
 	const loadMore = useCallback(() => {
 		if (!isDefaultListActive) return
@@ -81,6 +92,7 @@ export const useProducts = () => {
 		refetchCategories,
 		selectedCategory,
 		onPressCategory,
+		onPressProduct,
 		handleSearch,
 		loadMore
 	}
