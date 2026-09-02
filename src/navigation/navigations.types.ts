@@ -1,11 +1,7 @@
-import type { NavigatorScreenParams } from '@react-navigation/native'
-
-export type ProductsStackParamList = {
-	ProductsList: undefined
-	ProductDetail: { productId: number }
-}
+import { Product } from '../domain'
 
 export interface RootTabParamList {
-	ProductsTab: NavigatorScreenParams<ProductsStackParamList>
+	ProductsTab: undefined
+	ProductDetailsTab: { product: Product }
 	FavoritesTab: undefined
 }

@@ -5,8 +5,9 @@ import {
 	ProductDetailsScreen,
 	ProductsScreen
 } from '../screens'
+import { TabBarParamList } from './TabBarNavigator.types'
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator<TabBarParamList>()
 
 export const TabBarNavigator = (): React.JSX.Element => {
 	return (
