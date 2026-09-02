@@ -1,30 +1,25 @@
 import React from 'react'
-import {
-	View,
-	Text,
-	TouchableOpacity,
-	Image,
-	TurboModuleRegistry
-} from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { Icon } from '@ui-kitten/components'
 import FastImage from "@d11/react-native-fast-image"
 import { ProductCardProps } from './ProductCard.types'
 import { useProductCard } from './useProductCard'
 import { useProductCardStyles } from './styles'
 
-export const ProductCard = ({ product, onPress }: ProductCardProps) => {
+export const ProductCard = ({ product, onPress }: ProductCardProps): React.JSX.Element => {
 	const styles = useProductCardStyles()
 	const {
 		formattedDiscountedPrice,
 		formattedOriginalPrice,
 		discountLabel,
-		hasDiscount
+		hasDiscount,
+		isFavorite
 	} = useProductCard(product)
 
 	return (
 		<TouchableOpacity
 			style={styles.container}
-			onPress={() => onPress(product.id)}
+			onPress={() => onPress(product)}
 			accessibilityRole="button"
 			accessibilityLabel={`Ver detalle de ${product.title}`}
 		>
@@ -33,6 +28,7 @@ export const ProductCard = ({ product, onPress }: ProductCardProps) => {
 					source={{ 
 						uri: product.thumbnail,
 						priority: FastImage.priority.normal,
+						cache: FastImage.cacheControl.immutable
 					 }}
 					style={styles.image}
 					resizeMode={FastImage.resizeMode.contain}
@@ -68,7 +64,7 @@ export const ProductCard = ({ product, onPress }: ProductCardProps) => {
 					<Text style={styles.discountText}>{discountLabel}</Text>
 				</View>
 			)}
-			{TurboModuleRegistry && (
+			{isFavorite && (
 				<View style={styles.favoriteBadge}>
 					<Icon
 						name="heart"
