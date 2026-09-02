@@ -6,13 +6,21 @@ import { ImageCarouselProps } from './ImageCarousel.types'
 import { useImageCarousel } from './useImageCarousel'
 import { useImageCarouselStyles } from './styles'
 import { CarouselDot } from './CarouselDot'
+import { Skeleton } from '../Skeleton'
 
 export const ImageCarousel = ({
 	images,
-	height = 320
+	height = 320,
+	onFirstImageLoad
 }: ImageCarouselProps): React.JSX.Element => {
 	const styles = useImageCarouselStyles(height)
-	const { scrollX, onScroll, slideWidth } = useImageCarousel()
+	const {
+		scrollX,
+		onScroll,
+		slideWidth,
+		isFirstImageReady,
+		onFirstImageLoadEnd
+	} = useImageCarousel(onFirstImageLoad)
 
 	return (
 		<View style={styles.container}>
@@ -24,7 +32,7 @@ export const ImageCarousel = ({
 				showsHorizontalScrollIndicator={false}
 				onScroll={onScroll}
 				scrollEventThrottle={16}
-				renderItem={({ item }) => (
+				renderItem={({ item, index }) => (
 					<View style={[styles.slide, { width: slideWidth }]}>
 						<FastImage
 							source={{
@@ -34,10 +42,14 @@ export const ImageCarousel = ({
 							}}
 							style={styles.image}
 							resizeMode={FastImage.resizeMode.contain}
+							onLoadEnd={index === 0 ? onFirstImageLoadEnd : undefined}
 						/>
 					</View>
 				)}
 			/>
+			{!isFirstImageReady && (
+				<Skeleton style={styles.loadingOverlay} borderRadius={16} />
+			)}
 			<View style={styles.dotsContainer}>
 				{images.map((_, index) => (
 					<CarouselDot

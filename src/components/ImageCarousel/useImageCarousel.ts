@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
 	useAnimatedScrollHandler,
 	useSharedValue
@@ -5,14 +6,28 @@ import {
 import { useDimensions } from '../../hook'
 import { UseImageCarouselResult } from './ImageCarousel.types'
 
-export const useImageCarousel = (): UseImageCarouselResult => {
+export const useImageCarousel = (
+	onFirstImageLoad?: () => void
+): UseImageCarouselResult => {
 	const { widthP } = useDimensions()
 	const slideWidth = widthP(100)
 	const scrollX = useSharedValue(0)
+	const [isFirstImageReady, setIsFirstImageReady] = useState(false)
 
 	const onScroll = useAnimatedScrollHandler(event => {
 		scrollX.value = event.contentOffset.x
 	})
 
-	return { scrollX, onScroll, slideWidth }
+	const onFirstImageLoadEnd = (): void => {
+		setIsFirstImageReady(true)
+		onFirstImageLoad?.()
+	}
+
+	return {
+		scrollX,
+		onScroll,
+		slideWidth,
+		isFirstImageReady,
+		onFirstImageLoadEnd
+	}
 }
