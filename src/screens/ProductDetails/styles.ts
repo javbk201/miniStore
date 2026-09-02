@@ -55,13 +55,10 @@ export const useProductDetailsStyles = () => {
 		},
 		title: {
 			fontSize: 22,
-			fontWeight: '700',
-			color: '#1A1A1A'
 		},
 		category: {
 			fontSize: 12,
 			fontWeight: '500',
-			color: '#9A9A9A',
 			letterSpacing: 0.5,
 			marginTop: heightP(0.5),
 			marginBottom: heightP(1)
@@ -77,12 +74,10 @@ export const useProductDetailsStyles = () => {
 		},
 		ratingLabel: {
 			fontSize: 13,
-			fontWeight: '700',
-			color: '#1A1A1A'
+			fontWeight: '700'
 		},
 		ratingDetail: {
-			fontSize: 12,
-			color: '#9A9A9A'
+			fontSize: 12
 		},
 		priceRow: {
 			flexDirection: 'row',
@@ -92,18 +87,15 @@ export const useProductDetailsStyles = () => {
 		discountedPrice: {
 			fontSize: 24,
 			fontWeight: '700',
-			color: '#1A1A1A',
 			marginRight: widthP(2)
 		},
 		originalPrice: {
 			fontSize: 16,
-			color: '#B0B0B0',
 			textDecorationLine: 'line-through'
 		},
 		description: {
 			fontSize: 14,
 			lineHeight: 21,
-			color: '#4A4A4A',
 			marginBottom: heightP(2)
 		},
 		tagsContainer: {
@@ -137,7 +129,6 @@ export const useProductDetailsStyles = () => {
 		errorText: {
 			flex: 1,
 			fontSize: 13,
-			color: '#E0447B',
 			marginRight: widthP(2)
 		},
 		retryButton: {

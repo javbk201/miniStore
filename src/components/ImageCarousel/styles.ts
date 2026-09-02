@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native'
 import { useDimensions } from '../../hook'
+import { useTheme } from '@ui-kitten/components'
 
 export const useImageCarouselStyles = (height: number = 320) => {
 	const { widthP } = useDimensions()
+	const theme = useTheme()
 	const styles = StyleSheet.create({
 		container: { width: '100%' },
 		slide: { justifyContent: 'center', alignItems: 'center', height },
@@ -24,7 +26,7 @@ export const useImageCarouselStyles = (height: number = 320) => {
 		dot: {
 			height: widthP(1.6),
 			borderRadius: widthP(0.8),
-			backgroundColor: '#1A1A1A'
+			backgroundColor: theme['color-primary-100']
 		}
 	})
 	return styles
