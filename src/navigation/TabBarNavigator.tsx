@@ -6,6 +6,8 @@ import {
 	ProductsScreen
 } from '../screens'
 import { TabBarParamList } from './TabBarNavigator.types'
+import { TabBarIcon } from './TabBarIcon'
+import { RootTabParamList } from './navigations.types'
 
 const Tab = createBottomTabNavigator<TabBarParamList>()
 
@@ -15,6 +17,14 @@ export const TabBarNavigator = (): React.JSX.Element => {
 			screenOptions={({ route }) => ({
 				headerShown: false,
 				title: route.name,
+				tabBarIcon: ({ focused, color, size }) => (
+					<TabBarIcon
+						routeName={route.name as keyof RootTabParamList}
+						focused={focused}
+						color={color}
+						size={size}
+					/>
+				),
 				tabBarAllowFontScaling: false,
 				tabBarHideOnKeyboard: true,
 				tabBarStyle: {
@@ -23,12 +33,9 @@ export const TabBarNavigator = (): React.JSX.Element => {
 				}
 			})}
 		>
-			<Tab.Screen name="ProductsTab" component={ProductsScreen} />
-			<Tab.Screen
-				name="ProductDetailsTab"
-				component={ProductDetailsScreen}
-			/>
-			<Tab.Screen name="FavoritesTab" component={FavoritesScreen} />
+			<Tab.Screen name="Productos" component={ProductsScreen} />
+			<Tab.Screen name="Detalles" component={ProductDetailsScreen} />
+			<Tab.Screen name="Favoritos" component={FavoritesScreen} />
 		</Tab.Navigator>
 	)
 }
