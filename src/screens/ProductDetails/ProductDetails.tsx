@@ -1,13 +1,13 @@
 import React from 'react'
 import { ScrollView, TouchableOpacity, View } from 'react-native'
-import { Button, Icon, Layout, Text } from '@ui-kitten/components'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Button, Icon, Text } from '@ui-kitten/components'
 import {
 	ImageCarousel,
 	FavoriteButton,
 	RatingStars,
 	EmptyState,
-	Skeleton
+	Skeleton,
+	ThemedBox
 } from '../../components'
 import { useProductDetail } from './useProductDetail'
 import { useProductDetailsStyles } from './styles'
@@ -32,14 +32,12 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 
 	if (!product) {
 		return (
-			<SafeAreaView edges={['top']}>
-				<Layout style={styles.container}>
-					<EmptyState
-						title="No hay ningún producto seleccionado"
-						description="Ve a la pestaña Productos y toca un producto para ver su detalle."
-					/>
-				</Layout>
-			</SafeAreaView>
+			<ThemedBox>
+				<EmptyState
+					title="No hay ningún producto seleccionado"
+					description="Ve a la pestaña Productos y toca un producto para ver su detalle."
+				/>
+			</ThemedBox>
 		)
 	}
 
@@ -47,7 +45,7 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 		product.images.length > 0 ? product.images : [product.thumbnail]
 
 	return (
-		<SafeAreaView style={styles.container} edges={['top']}>
+		<ThemedBox>
 			<View style={styles.contentWrapper}>
 				<ScrollView showsVerticalScrollIndicator={false}>
 					<View style={styles.carouselWrapper}>
@@ -155,6 +153,6 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 					</View>
 				)}
 			</View>
-		</SafeAreaView>
+		</ThemedBox>
 	)
 }

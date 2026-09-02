@@ -52,7 +52,7 @@ export const useProductCardStyles = () => {
 			fontWeight: '600',
 			color: '#1A1A1A',
 			lineHeight: 20,
-			maxWidth: "90%"
+			maxWidth: '90%'
 		},
 		category: {
 			fontSize: 11,

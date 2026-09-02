@@ -5,17 +5,16 @@ export const useEmptyStateStyles = () => {
 		container: {
 			flex: 1,
 			alignItems: 'center',
-			justifyContent: 'center'
+			justifyContent: 'center',
+			gap: 16
 		},
 		title: {
 			fontSize: 16,
 			fontWeight: '600',
-			color: '#1A1A1A',
 			textAlign: 'center'
 		},
 		description: {
 			fontSize: 14,
-			color: '#9A9A9A',
 			textAlign: 'center',
 			marginTop: 6
 		}

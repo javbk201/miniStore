@@ -1,12 +1,15 @@
 import { StyleSheet } from 'react-native'
+import { useTheme } from '@ui-kitten/components'
 import { useDimensions } from '../../hook'
 
 export const useFavoritesStyles = () => {
 	const { heightP } = useDimensions()
+	const theme = useTheme()
+	
 	const styles = StyleSheet.create({
 		container: {
 			flex: 1,
-			backgroundColor: '#eae9e9',
+			backgroundColor: theme['background-basic-color-1'],
 			paddingHorizontal: 16
 		},
 		listContent: {

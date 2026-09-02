@@ -3,8 +3,7 @@ import React from 'react'
 import { Button, Input, Layout, Text } from '@ui-kitten/components'
 import { useProducts } from './useProducts'
 import { useProductsStyles } from './styles'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { SearchBar, Skeleton } from '../../components'
+import { SearchBar, Skeleton, ThemedBox } from '../../components'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { EmptyState } from '../../components/EmptyState'
 
@@ -23,7 +22,7 @@ export const ProductsScreen = (): React.JSX.Element => {
 	} = useProducts()
 	const styles = useProductsStyles()
 	return (
-		<SafeAreaView style={styles.container} edges={['top']}>
+		<ThemedBox>
 			{/* Header Screen */}
 			<Text category="h1">Productos</Text>
 			{/* Search bar */}
@@ -39,7 +38,7 @@ export const ProductsScreen = (): React.JSX.Element => {
 						horizontal
 						contentContainerStyle={{ gap: 8 }}
 						showsHorizontalScrollIndicator={false}
-						renderItem={({ item }) => <Skeleton />}
+						renderItem={({ item }) => <Skeleton width={56} height={32} borderRadius={90} />}
 					/>
 				) : (
 					<FlatList
@@ -102,6 +101,6 @@ export const ProductsScreen = (): React.JSX.Element => {
 					}
 				/>
 			)}
-		</SafeAreaView>
+		</ThemedBox>
 	)
 }
