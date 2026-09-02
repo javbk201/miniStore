@@ -1,8 +1,8 @@
 import { ViewProps, ViewStyle } from 'react-native'
 
 export interface SkeletonProps extends ViewProps {
-	width?: string | number
-	height?: string | number
+	width?: ViewStyle['width']
+	height?: ViewStyle['height']
 	borderRadius?: number
 	color?: string
 }
@@ -13,8 +13,8 @@ export interface SkeletonHookProps extends ViewProps {
 		| {
 				minWidth: number
 				minHeight: number
-				width: string | number | undefined
-				height: string | number | undefined
+				width: ViewStyle['width']
+				height: ViewStyle['height']
 				borderRadius: number
 				backgroundColor: string
 		  }

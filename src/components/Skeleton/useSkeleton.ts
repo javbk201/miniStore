@@ -44,7 +44,7 @@ export const useSkeleton = (props: SkeletonProps): SkeletonHookProps => {
 			width: props.width,
 			height: props.height,
 			borderRadius: props.borderRadius ?? 6,
-			backgroundColor: props.color ?? '#E1E9EE'
+			backgroundColor: props.color ?? '#999999'
 		},
 
 		props.style
