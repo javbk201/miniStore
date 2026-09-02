@@ -36,6 +36,9 @@ export const ProductsScreen = (): React.JSX.Element => {
 					<FlatList
 						data={[1, 2, 3, 4, 5]}
 						keyExtractor={item => `skeleton-${item}`}
+						horizontal
+						contentContainerStyle={{ gap: 8 }}
+						showsHorizontalScrollIndicator={false}
 						renderItem={({ item }) => <Skeleton />}
 					/>
 				) : (
@@ -69,7 +72,11 @@ export const ProductsScreen = (): React.JSX.Element => {
 			{productLoading ? (
 				<FlatList
 					data={[1, 2, 3, 4, 5]}
-					renderItem={({ item }) => <Skeleton />}
+					style={{ paddingTop: 16 }}
+					contentContainerStyle={{ gap: 8, alignItems: 'center' }}
+					renderItem={({ item }) => (
+						<Skeleton width={345} height={200} />
+					)}
 				/>
 			) : (
 				<FlatList

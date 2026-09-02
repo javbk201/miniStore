@@ -16,11 +16,14 @@ export const favoritesSlice = createSlice({
 			} else {
 				state.items[product.id] = product
 			}
+		},
+		removeFavorite: (state, action: PayloadAction<number>): void => {
+			delete state.items[action.payload]
 		}
 	}
 })
 
-export const { toggleFavorite } = favoritesSlice.actions
+export const { toggleFavorite, removeFavorite } = favoritesSlice.actions
 
 export const selectIsFavorite =
 	(productId: number) =>
