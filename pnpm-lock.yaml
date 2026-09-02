@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      '@d11/react-native-fast-image':
+        specifier: ^8.13.0
+        version: 8.13.0(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       '@react-navigation/bottom-tabs':
         specifier: ^7.4.7
         version: 7.18.18(6ebffc9f75e762ba4fd51eb93f5dab11)
@@ -795,6 +798,12 @@ packages:
 
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+
+  '@d11/react-native-fast-image@8.13.0':
+    resolution: {integrity: sha512-zfsBtYNttiZVV/NwEnN/PzgW3PGlGYqn0/6DUOQ/tCv1lO0gO7+S0GiANmNDl35oVmh8o0DK81lF8xAhYz/aNA==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
 
   '@eslint-community/eslint-utils@4.10.1':
     resolution: {integrity: sha512-cuadcxVFE8sDK6iWJbs8Sn0av2Nrh2QSGQhVlBW9AaAHqHwjWsZHT8LJ4hFGPh7ASBV2deFdM7H/DPjulmh8rg==}
@@ -4709,6 +4718,11 @@ snapshots:
       '@babel/helper-validator-identifier': 7.29.7
 
   '@bcoe/v8-coverage@0.2.3': {}
+
+  '@d11/react-native-fast-image@8.13.0(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)':
+    dependencies:
+      react: 19.1.4
+      react-native: 0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1)
 
   '@eslint-community/eslint-utils@4.10.1(eslint@8.57.1(supports-color@8.1.1))':
     dependencies:
