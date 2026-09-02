@@ -1,45 +1,43 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, useColorScheme, View, Text } from 'react-native';
+import { Provider } from 'react-redux';
 import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
+	SafeAreaProvider,
+	useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import * as eva from '@ui-kitten/eva'
+import { EvaIconsPack } from '@ui-kitten/eva-icons'
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components'
+import { NavigationContainer } from '@react-navigation/native'
+import { TabBarNavigator } from './src/navigation/TabBarNavigator'
+import { ErrorBoundary } from './src/components'
+import { store } from './src/store'
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+	const isDarkMode = useColorScheme() === 'dark';
 
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
+	return (
+		<Provider store={store}>
+			<SafeAreaProvider>
+				<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+				<IconRegistry icons={EvaIconsPack} />
+				<ApplicationProvider {...eva} theme={eva.light}>
+					<ErrorBoundary>
+						<AppContent />
+					</ErrorBoundary>
+				</ApplicationProvider>
+			</SafeAreaProvider>
+		</Provider>
+	);
 }
 
 function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+	const safeAreaInsets = useSafeAreaInsets();
 
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
+	return (
+		<NavigationContainer>
+			<TabBarNavigator />
+		</NavigationContainer>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
