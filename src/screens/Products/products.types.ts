@@ -23,9 +23,11 @@ export interface UseProductsResult {
 	categoriesLoading: boolean
 	categoriesError: ApiError | SerializedError | undefined
 	refetchCategories: () => void
+	refetchProducts: () => void
 	selectedCategory: string | null
 	onPressCategory: (categorySlug: string) => void
 	onPressProduct: (product: Product) => void
 	handleSearch: (query: string) => void
 	loadMore: () => void
+	conectionType: string
 }

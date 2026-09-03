@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import {
 	useGetCategoriesQuery,
 	useGetProductsQuery,
@@ -8,17 +8,20 @@ import {
 } from './Products.api'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { Product } from '../../domain'
+import { NativeModules } from 'react-native'
 import { ProductsNavigationProp, UseProductsResult } from './products.types'
 
 const PAGE_SIZE = 20
 
 export const useProducts = (): UseProductsResult => {
 	const navigation = useNavigation<ProductsNavigationProp>()
+	const { ConnectionStatusModule } = NativeModules
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(
 		null
 	)
 	const [searchQuery, setSearchQuery] = useState('')
 	const [skip, setSkip] = useState(0)
+	const [conectionType, setConectionType] = useState('')
 
 	const isDefaultListActive = !selectedCategory && !searchQuery
 
@@ -80,6 +83,22 @@ export const useProducts = (): UseProductsResult => {
 		defaultProductsQuery.data
 	])
 
+	const checkNetwork = async () => {
+		try {
+			const { name, connected } = await ConnectionStatusModule.checkConnectionStatus();
+			if (connected) {
+				setConectionType(name)
+			}
+		} catch (error) {
+			console.error("Error al verificar la conexión", error);
+		}
+	}
+	useFocusEffect(
+		useCallback(() => {
+			checkNetwork()
+	}, []))
+	
+
 	return {
 		productsData: activeQuery.data,
 		productLoading: activeQuery.isLoading,
@@ -90,10 +109,12 @@ export const useProducts = (): UseProductsResult => {
 		categoriesLoading,
 		categoriesError,
 		refetchCategories,
+		refetchProducts: activeQuery.refetch,
 		selectedCategory,
 		onPressCategory,
 		onPressProduct,
 		handleSearch,
-		loadMore
+		loadMore,
+		conectionType
 	}
 }

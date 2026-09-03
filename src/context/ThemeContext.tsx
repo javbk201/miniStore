@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import { createContext, useContext } from 'react'
 import { ThemeMode } from '../hook'
 
 interface ThemeContextValue {
@@ -11,4 +11,5 @@ export const ThemeContext = createContext<ThemeContextValue>({
 	toggleTheme: () => {}
 })
 
-export const useThemeContext = () => useContext(ThemeContext)
+export const useThemeContext = (): ThemeContextValue =>
+	useContext(ThemeContext)

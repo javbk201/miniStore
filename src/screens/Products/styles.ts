@@ -9,6 +9,11 @@ export const useProductsStyles = () => {
 			backgroundColor: '#eae9e9',
 			paddingHorizontal: 16
 		},
+		wifiIndicator: {
+			position: "absolute",
+			right: 0,
+			borderRadius: 25
+		},
 		gap8: {
 			gap: 8
 		},
@@ -25,7 +30,23 @@ export const useProductsStyles = () => {
 			borderWidth: 1
 		},
 		productContainer: { paddingTop: 16 },
-		skeletonProducts: { gap: 8, alignItems: 'center' }
+		skeletonProducts: { gap: 8, alignItems: 'center' },
+		categoryErrorRow: {
+			flexDirection: 'row',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			flex: 1,
+			backgroundColor: '#FDE7EC',
+			borderRadius: 12,
+			paddingHorizontal: widthP(4),
+			paddingVertical: heightP(1)
+		},
+		categoryErrorText: {
+			flex: 1,
+			fontSize: 13,
+			color: '#E0447B',
+			marginRight: widthP(2)
+		}
 	})
 
 	return styles

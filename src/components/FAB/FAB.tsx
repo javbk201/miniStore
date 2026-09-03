@@ -3,7 +3,7 @@ import { Button, Icon } from '@ui-kitten/components'
 import { useThemeContext } from '../../context'
 import { useFABStyle } from './styles'
 
-const FAB = () => {
+const FAB = (): React.JSX.Element => {
 	const { themeMode, toggleTheme } = useThemeContext()
 	const styles = useFABStyle()
 	return (

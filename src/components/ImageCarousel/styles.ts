@@ -26,7 +26,7 @@ export const useImageCarouselStyles = (height: number = 320) => {
 		dot: {
 			height: widthP(1.6),
 			borderRadius: widthP(0.8),
-			backgroundColor: theme['color-primary-100']
+			backgroundColor: theme['color-primary-300']
 		}
 	})
 	return styles

@@ -8,8 +8,7 @@ export const apiClient: AxiosInstance = axios.create({
 	headers: {
 		Accept: 'application/json'
 	},
-	timeout: 10000,
-	validateStatus: () => true
+	timeout: 10000
 })
 
 apiClient.interceptors.response.use(

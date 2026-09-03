@@ -6,7 +6,12 @@ export type ThemeMode = 'light' | 'dark'
 
 const THEME_STORAGE_KEY = 'app-theme-mode'
 
-export const useAppTheme = () => {
+interface UseAppThemeResult {
+	themeMode: ThemeMode
+	toggleTheme: () => void
+}
+
+export const useAppTheme = (): UseAppThemeResult => {
 	const systemScheme = useColorScheme()
 
 	const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
