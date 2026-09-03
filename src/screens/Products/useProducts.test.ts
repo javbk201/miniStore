@@ -124,7 +124,9 @@ describe('useProducts', () => {
 			result.current.onPressProduct(product)
 		})
 
-		expect(mockNavigate).toHaveBeenCalledWith('Detalles', { product })
+		expect(mockNavigate).toHaveBeenCalledWith('Detalles', {
+			productId: product.id
+		})
 	})
 
 	it('exposes the active query error as productsError', () => {

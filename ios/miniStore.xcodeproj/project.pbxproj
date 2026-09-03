@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0152AC0D3049568D006E41FC /* ConnectionStatusModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */; };
+		0152AC10304959F5006E41FC /* ConnectionStatusModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152AC0F304959F5006E41FC /* ConnectionStatusModule.swift */; };
+		0152AC1230495A0C006E41FC /* ConnectionStatusModule 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152AC1130495A0C006E41FC /* ConnectionStatusModule 2.swift */; };
 		0C80B921A6F3F58F76C31292 /* libPods-miniStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-miniStore.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
@@ -15,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusModule.m; sourceTree = "<group>"; };
+		0152AC0E304956D9006E41FC /* miniStore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "miniStore-Bridging-Header.h"; sourceTree = "<group>"; };
+		0152AC0F304959F5006E41FC /* ConnectionStatusModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusModule.swift; sourceTree = "<group>"; };
+		0152AC1130495A0C006E41FC /* ConnectionStatusModule 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionStatusModule 2.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* miniStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = miniStore/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = miniStore/Info.plist; sourceTree = "<group>"; };
@@ -70,6 +77,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0152AC0F304959F5006E41FC /* ConnectionStatusModule.swift */,
+				0152AC1130495A0C006E41FC /* ConnectionStatusModule 2.swift */,
+				0152AC0E304956D9006E41FC /* miniStore-Bridging-Header.h */,
+				0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */,
 				13B07FAE1A68108700A75B9A /* miniStore */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -191,9 +202,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -230,9 +245,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -246,6 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0152AC0D3049568D006E41FC /* ConnectionStatusModule.m in Sources */,
+				0152AC1230495A0C006E41FC /* ConnectionStatusModule 2.swift in Sources */,
+				0152AC10304959F5006E41FC /* ConnectionStatusModule.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +297,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = miniStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "miniStore/miniStore-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -302,6 +325,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = miniStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "miniStore/miniStore-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
