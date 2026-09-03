@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import {
 	useGetCategoriesQuery,
@@ -83,21 +83,22 @@ export const useProducts = (): UseProductsResult => {
 		defaultProductsQuery.data
 	])
 
-	const checkNetwork = async () => {
+	const checkNetwork = useCallback(async (): Promise<void> => {
 		try {
-			const { name, connected } = await ConnectionStatusModule.checkConnectionStatus();
+			const { name, connected } =
+				await ConnectionStatusModule.checkConnectionStatus()
 			if (connected) {
 				setConectionType(name)
 			}
 		} catch (error) {
-			console.error("Error al verificar la conexión", error);
+			console.error('Error al verificar la conexión', error)
 		}
-	}
+	}, [ConnectionStatusModule])
 	useFocusEffect(
 		useCallback(() => {
 			checkNetwork()
-	}, []))
-	
+		}, [checkNetwork])
+	)
 
 	return {
 		productsData: activeQuery.data,

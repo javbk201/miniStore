@@ -41,7 +41,12 @@ export const ProductsScreen = (): React.JSX.Element => {
 			{/* Header Screen */}
 			<View>
 				<Text category="h1">Productos</Text>
-				<Button style={styles.wifiIndicator} accessoryLeft={conectionType === 'WIFI' ? WifiIcon : NoWifiIcon} />
+				<Button
+					style={styles.wifiIndicator}
+					accessoryLeft={
+						conectionType === 'WIFI' ? WifiIcon : NoWifiIcon
+					}
+				/>
 			</View>
 			{/* Search bar */}
 			<View style={styles.inputContainer}>

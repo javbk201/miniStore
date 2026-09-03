@@ -9,11 +9,15 @@ const FAB = (): React.JSX.Element => {
 	return (
 		<Button
 			style={styles.container}
-			accessibilityLabel='Alternar modo oscuro'
-			accessoryLeft={(props) =>
-					<Icon {...props} name={themeMode === 'dark' ? 'moon-outline' : 'sun-outline'} />}
+			accessibilityLabel="Alternar modo oscuro"
+			accessoryLeft={props => (
+				<Icon
+					{...props}
+					name={themeMode === 'dark' ? 'moon-outline' : 'sun-outline'}
+				/>
+			)}
 			onPress={toggleTheme}
-			size='medium'
+			size="medium"
 		/>
 	)
 }

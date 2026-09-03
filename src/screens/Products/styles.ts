@@ -10,7 +10,7 @@ export const useProductsStyles = () => {
 			paddingHorizontal: 16
 		},
 		wifiIndicator: {
-			position: "absolute",
+			position: 'absolute',
 			right: 0,
 			borderRadius: 25
 		},

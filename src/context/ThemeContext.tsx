@@ -11,5 +11,4 @@ export const ThemeContext = createContext<ThemeContextValue>({
 	toggleTheme: () => {}
 })
 
-export const useThemeContext = (): ThemeContextValue =>
-	useContext(ThemeContext)
+export const useThemeContext = (): ThemeContextValue => useContext(ThemeContext)

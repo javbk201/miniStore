@@ -22,7 +22,12 @@ export const TabBarNavigator = (): React.JSX.Element => {
 			color: string,
 			size: number
 		): React.JSX.Element => (
-			<TabBarIcon routeName={name} focused={focused} color={color} size={size} />
+			<TabBarIcon
+				routeName={name}
+				focused={focused}
+				color={color}
+				size={size}
+			/>
 		),
 		[]
 	)
