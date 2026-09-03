@@ -63,7 +63,7 @@ export const useProducts = (): UseProductsResult => {
 
 	const onPressProduct = useCallback(
 		(product: Product) => {
-			navigation.navigate('Detalles', { product })
+			navigation.navigate('Detalles', { productId: product.id })
 		},
 		[navigation]
 	)

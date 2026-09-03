@@ -21,23 +21,20 @@ import {
 export const useProductDetail = (): UseProductDetailResult => {
 	const { params } = useRoute<ProductDetailRouteProp>()
 	const navigation = useNavigation<ProductDetailNavigationProp>()
-	const initialProduct = params?.product
+	const productId = params?.productId
 
-	const { data, isFetching, isError, refetch } = useGetProductByIdQuery(
-		initialProduct ? initialProduct.id : skipToken
-	)
-
-	const product = data ?? initialProduct
+	const {
+		data: product,
+		isFetching,
+		isError,
+		refetch
+	} = useGetProductByIdQuery(productId ?? skipToken)
 
 	const [isContentReady, setIsContentReady] = useState(false)
 
 	useFocusEffect(
 		useCallback(() => {
-			if (!product) {
-				setIsContentReady(false)
-			} else {
-				setIsContentReady(true)
-			}
+			setIsContentReady(false)
 		}, [])
 	)
 

@@ -1,7 +1,5 @@
-import { Product } from '../domain'
-
 export interface RootTabParamList {
 	Productos: undefined
-	Detalles: { product: Product } | undefined
+	Detalles: { productId: number } | undefined
 	Favoritos: undefined
 }

@@ -73,7 +73,7 @@ describe('useFavorites', () => {
 			result.current.onPressFavorite(mockProduct)
 		})
 		expect(mockNavigate).toHaveBeenCalledWith('Detalles', {
-			product: mockProduct
+			productId: mockProduct.id
 		})
 	})
 

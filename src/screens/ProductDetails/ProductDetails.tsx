@@ -18,6 +18,7 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 	const { styles, theme } = useProductDetailsStyles()
 	const {
 		product,
+		isLoading,
 		isError,
 		refetch,
 		isFavorite,
@@ -29,8 +30,42 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 		isContentReady,
 		onFirstImageLoad
 	} = useProductDetail()
+		console.log("🚀 ~ ProductDetailsScreen ~ isLoading:", isLoading)
+
+	if (isLoading) {
+		return (
+			<ThemedBox>
+				<Layout style={styles.loadingOverlay}>
+					<Skeleton
+						style={styles.skeletonSpacing}
+						height={320}
+						borderRadius={24}
+					/>
+					<Layout style={styles.skeletonBody}>
+						<Skeleton width="70%" height={22} />
+						<Skeleton width="35%" height={12} />
+						<Skeleton width="50%" height={16} />
+						<Skeleton width="40%" height={26} />
+						<Skeleton width="100%" height={70} />
+					</Layout>
+				</Layout>
+			</ThemedBox>
+		)
+	}
 
 	if (!product) {
+		if (isError) {
+			return (
+				<ThemedBox>
+					<EmptyState
+						title="No se pudo cargar el producto"
+						description="Revisa tu conexión e intenta nuevamente"
+					>
+						<Button onPress={refetch}>{RETRY_LABEL}</Button>
+					</EmptyState>
+				</ThemedBox>
+			)
+		}
 		return (
 			<ThemedBox>
 				<EmptyState
@@ -135,23 +170,6 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 						)}
 					</View>
 				</ScrollView>
-
-				{!isContentReady && (
-					<Layout style={styles.loadingOverlay}>
-						<Skeleton
-							style={styles.skeletonSpacing}
-							height={320}
-							borderRadius={24}
-						/>
-						<Layout style={styles.skeletonBody}>
-							<Skeleton width="70%" height={22} />
-							<Skeleton width="35%" height={12} />
-							<Skeleton width="50%" height={16} />
-							<Skeleton width="40%" height={26} />
-							<Skeleton width="100%" height={70} />
-						</Layout>
-					</Layout>
-				)}
 			</View>
 		</ThemedBox>
 	)

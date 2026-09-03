@@ -1,5 +1,6 @@
 import { renderHook, act } from '@testing-library/react-native'
 import { useRoute, useNavigation } from '@react-navigation/native'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { useProductDetail } from './useProductDetail'
 import { useGetProductByIdQuery } from './ProductDetails.api'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
@@ -60,34 +61,37 @@ describe('useProductDetail', () => {
 	beforeEach(() => {
 		jest.clearAllMocks()
 		;(useRoute as jest.Mock).mockReturnValue({
-			params: { product: mockProduct }
+			params: { productId: mockProduct.id }
 		})
 		;(useNavigation as jest.Mock).mockReturnValue({ goBack: mockGoBack })
 		;(useAppDispatch as jest.Mock).mockReturnValue(mockDispatch)
 		;(useAppSelector as jest.Mock).mockReturnValue(false)
+		;(useGetProductByIdQuery as jest.Mock).mockReturnValue({
+			data: mockProduct,
+			isFetching: false,
+			isError: false,
+			refetch: mockRefetch
+		})
+	})
+
+	it('returns the product from the query', () => {
+		const { result } = renderHook(() => useProductDetail())
+		expect(result.current.product).toEqual(mockProduct)
+	})
+
+	it('passes skipToken to the query when there is no productId param', () => {
+		;(useRoute as jest.Mock).mockReturnValue({ params: undefined })
 		;(useGetProductByIdQuery as jest.Mock).mockReturnValue({
 			data: undefined,
 			isFetching: false,
 			isError: false,
 			refetch: mockRefetch
 		})
-	})
 
-	it('falls back to the product from navigation params while the fresh fetch is pending', () => {
 		const { result } = renderHook(() => useProductDetail())
-		expect(result.current.product).toEqual(mockProduct)
-	})
 
-	it('prefers the freshly fetched product once GET /products/{id} resolves', () => {
-		const freshProduct = { ...mockProduct, title: 'Fresh Title' }
-		;(useGetProductByIdQuery as jest.Mock).mockReturnValue({
-			data: freshProduct,
-			isFetching: false,
-			isError: false,
-			refetch: mockRefetch
-		})
-		const { result } = renderHook(() => useProductDetail())
-		expect(result.current.product?.title).toBe('Fresh Title')
+		expect(useGetProductByIdQuery).toHaveBeenCalledWith(skipToken)
+		expect(result.current.product).toBeUndefined()
 	})
 
 	it('dispatches toggleFavorite with the current product', () => {
@@ -116,6 +120,12 @@ describe('useProductDetail', () => {
 
 	it('does not crash and returns an undefined product when the Detalles tab is opened directly (no navigation params)', () => {
 		;(useRoute as jest.Mock).mockReturnValue({ params: undefined })
+		;(useGetProductByIdQuery as jest.Mock).mockReturnValue({
+			data: undefined,
+			isFetching: false,
+			isError: false,
+			refetch: mockRefetch
+		})
 
 		const { result } = renderHook(() => useProductDetail())
 
@@ -127,6 +137,12 @@ describe('useProductDetail', () => {
 
 	it('does not dispatch toggleFavorite when there is no product to favorite', () => {
 		;(useRoute as jest.Mock).mockReturnValue({ params: undefined })
+		;(useGetProductByIdQuery as jest.Mock).mockReturnValue({
+			data: undefined,
+			isFetching: false,
+			isError: false,
+			refetch: mockRefetch
+		})
 
 		const { result } = renderHook(() => useProductDetail())
 		act(() => {
@@ -136,22 +152,12 @@ describe('useProductDetail', () => {
 		expect(mockDispatch).not.toHaveBeenCalled()
 	})
 
-	it('marks content as ready immediately when a product is available on focus', () => {
+	it('starts with content not ready on focus, regardless of whether a product is loaded', () => {
 		const { result } = renderHook(() => useProductDetail())
-		expect(result.current.isContentReady).toBe(true)
-	})
-
-	it('marks content as not ready when there is no product on focus', () => {
-		;(useRoute as jest.Mock).mockReturnValue({ params: undefined })
-
-		const { result } = renderHook(() => useProductDetail())
-
 		expect(result.current.isContentReady).toBe(false)
 	})
 
 	it('onFirstImageLoad marks content as ready', () => {
-		;(useRoute as jest.Mock).mockReturnValue({ params: undefined })
-
 		const { result } = renderHook(() => useProductDetail())
 		act(() => {
 			result.current.onFirstImageLoad()

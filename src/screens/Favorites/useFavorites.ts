@@ -32,7 +32,7 @@ export const useFavorites = (): UseFavoritesResult => {
 
 	const onPressFavorite = useCallback(
 		(product: Product) => {
-			navigation.navigate('Detalles', { product })
+			navigation.navigate('Detalles', { productId: product.id })
 		},
 		[navigation]
 	)

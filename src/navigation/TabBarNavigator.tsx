@@ -66,7 +66,7 @@ export const TabBarNavigator = (): React.JSX.Element => {
 					component={ProductDetailsScreen}
 					listeners={({ navigation }) => ({
 						tabPress: () => {
-							navigation.setParams({ product: undefined })
+							navigation.setParams({ productId: undefined })
 						}
 					})}
 				/>
