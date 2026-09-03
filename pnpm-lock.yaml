@@ -25,7 +25,7 @@ importers:
         version: 7.18.10(6ebffc9f75e762ba4fd51eb93f5dab11)
       '@react-navigation/stack':
         specifier: ^7.4.8
-        version: 7.10.24(a601efaabc9494907ce080107bf7fb22)
+        version: 7.10.24(4ed24c90349a7fbf37eb305c2c6a6ec6)
       '@reduxjs/toolkit':
         specifier: ^2.8.2
         version: 2.12.0(react-redux@9.3.0(@types/react@19.2.18)(react@19.1.4)(redux@5.0.1))(react@19.1.4)
@@ -51,8 +51,8 @@ importers:
         specifier: 0.81.6
         version: 0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1)
       react-native-gesture-handler:
-        specifier: 3.2.1
-        version: 3.2.1(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
+        specifier: 2.30.0
+        version: 2.30.0(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       react-native-mmkv:
         specifier: ^4.3.2
         version: 4.3.2(react-native-nitro-modules@0.37.1(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4))(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
@@ -820,6 +820,10 @@ packages:
       react: '*'
       react-native: '*'
 
+  '@egjs/hammerjs@2.0.17':
+    resolution: {integrity: sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==}
+    engines: {node: '>=0.8.0'}
+
   '@eslint-community/eslint-utils@4.10.1':
     resolution: {integrity: sha512-cuadcxVFE8sDK6iWJbs8Sn0av2Nrh2QSGQhVlBW9AaAHqHwjWsZHT8LJ4hFGPh7ASBV2deFdM7H/DPjulmh8rg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1241,6 +1245,9 @@ packages:
 
   '@types/graceful-fs@4.1.9':
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
+
+  '@types/hammerjs@2.0.46':
+    resolution: {integrity: sha512-ynRvcq6wvqexJ9brDMS4BnBLzmr0e14d6ZJTEShTBWKymQiHwlAyGu0ZPEFI2Fh1U53F7tN9ufClWM5KvqkKOw==}
 
   '@types/istanbul-lib-coverage@2.0.6':
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
@@ -3279,8 +3286,8 @@ packages:
       react: 16.5.0
       react-native-svg: ^9.4.0
 
-  react-native-gesture-handler@3.2.1:
-    resolution: {integrity: sha512-VEWscxUN29aeccbD2McF0LSXrwOhSdisaSRFiEWg0O/3WrVghNJp/tOtLrCgzb9gfcZ3xdA+K2Sp8F5G3iHx/Q==}
+  react-native-gesture-handler@2.30.0:
+    resolution: {integrity: sha512-5YsnKHGa0X9C8lb5oCnKm0fLUPM6CRduvUUw2Bav4RIj/C3HcFh4RIUnF8wgG6JQWCL1//gRx4v+LVWgcIQdGA==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -4818,6 +4825,10 @@ snapshots:
       react: 19.1.4
       react-native: 0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1)
 
+  '@egjs/hammerjs@2.0.17':
+    dependencies:
+      '@types/hammerjs': 2.0.46
+
   '@eslint-community/eslint-utils@4.10.1(eslint@8.57.1(supports-color@8.1.1))':
     dependencies:
       eslint: 8.57.1(supports-color@8.1.1)
@@ -5450,14 +5461,14 @@ snapshots:
     dependencies:
       nanoid: 3.3.18
 
-  '@react-navigation/stack@7.10.24(a601efaabc9494907ce080107bf7fb22)':
+  '@react-navigation/stack@7.10.24(4ed24c90349a7fbf37eb305c2c6a6ec6)':
     dependencies:
       '@react-navigation/elements': 2.9.40(@react-navigation/native@7.3.18(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4))(react-native-safe-area-context@5.9.1(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4))(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       '@react-navigation/native': 7.3.18(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       color: 4.2.3
       react: 19.1.4
       react-native: 0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1)
-      react-native-gesture-handler: 3.2.1(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
+      react-native-gesture-handler: 2.30.0(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       react-native-safe-area-context: 5.9.1(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       react-native-screens: 4.24.0(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
       use-latest-callback: 0.2.6(react@19.1.4)
@@ -5543,6 +5554,8 @@ snapshots:
   '@types/graceful-fs@4.1.9':
     dependencies:
       '@types/node': 26.4.0
+
+  '@types/hammerjs@2.0.46': {}
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -8117,9 +8130,10 @@ snapshots:
       react: 19.1.4
       react-native-svg: 15.15.5(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4)
 
-  react-native-gesture-handler@3.2.1(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4):
+  react-native-gesture-handler@2.30.0(react-native@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1))(react@19.1.4):
     dependencies:
-      '@types/react-test-renderer': 19.1.0
+      '@egjs/hammerjs': 2.0.17
+      hoist-non-react-statics: 3.3.2
       invariant: 2.2.4
       react: 19.1.4
       react-native: 0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(@react-native-community/cli@20.0.0(supports-color@8.1.1)(typescript@5.9.3))(@react-native/metro-config@0.81.6(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.1.4)(supports-color@8.1.1)

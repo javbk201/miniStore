@@ -9,26 +9,24 @@
 /* Begin PBXBuildFile section */
 		0152AC0D3049568D006E41FC /* ConnectionStatusModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */; };
 		0152AC10304959F5006E41FC /* ConnectionStatusModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152AC0F304959F5006E41FC /* ConnectionStatusModule.swift */; };
-		0152AC1230495A0C006E41FC /* ConnectionStatusModule 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152AC1130495A0C006E41FC /* ConnectionStatusModule 2.swift */; };
-		0C80B921A6F3F58F76C31292 /* libPods-miniStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-miniStore.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A10ADB75681474BAF20497AE /* libPods-miniStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 072D16C2BF91C58B7C751DEE /* libPods-miniStore.a */; };
 		AB33FF0ED003B6AAADB4B5EF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusModule.m; sourceTree = "<group>"; };
+		0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusModule.m; sourceTree = "<group>"; };
 		0152AC0E304956D9006E41FC /* miniStore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "miniStore-Bridging-Header.h"; sourceTree = "<group>"; };
 		0152AC0F304959F5006E41FC /* ConnectionStatusModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusModule.swift; sourceTree = "<group>"; };
-		0152AC1130495A0C006E41FC /* ConnectionStatusModule 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionStatusModule 2.swift"; sourceTree = "<group>"; };
+		072D16C2BF91C58B7C751DEE /* libPods-miniStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-miniStore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* miniStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = miniStore/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = miniStore/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = miniStore/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-miniStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miniStore.debug.xcconfig"; path = "Target Support Files/Pods-miniStore/Pods-miniStore.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-miniStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miniStore.release.xcconfig"; path = "Target Support Files/Pods-miniStore/Pods-miniStore.release.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-miniStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-miniStore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A570B5599DA8CDE578B6713 /* Pods-miniStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miniStore.release.xcconfig"; path = "Target Support Files/Pods-miniStore/Pods-miniStore.release.xcconfig"; sourceTree = "<group>"; };
+		5F381F961DECD0DA7F127BF4 /* Pods-miniStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miniStore.debug.xcconfig"; path = "Target Support Files/Pods-miniStore/Pods-miniStore.debug.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = miniStore/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = miniStore/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -39,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-miniStore.a in Frameworks */,
+				A10ADB75681474BAF20497AE /* libPods-miniStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-miniStore.a */,
+				072D16C2BF91C58B7C751DEE /* libPods-miniStore.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				0152AC0F304959F5006E41FC /* ConnectionStatusModule.swift */,
-				0152AC1130495A0C006E41FC /* ConnectionStatusModule 2.swift */,
 				0152AC0E304956D9006E41FC /* miniStore-Bridging-Header.h */,
 				0152AC0C3049567C006E41FC /* ConnectionStatusModule.m */,
 				13B07FAE1A68108700A75B9A /* miniStore */,
@@ -103,8 +100,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-miniStore.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-miniStore.release.xcconfig */,
+				5F381F961DECD0DA7F127BF4 /* Pods-miniStore.debug.xcconfig */,
+				4A570B5599DA8CDE578B6713 /* Pods-miniStore.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -116,13 +113,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "miniStore" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				A4B06FFB40EB6ABD75B1278D /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				A63EF3B9EA2DAEB74B8E0F96 /* [CP] Embed Pods Frameworks */,
+				266D1E05E0E80B0CA8D8F3B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,28 +191,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		266D1E05E0E80B0CA8D8F3B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		A4B06FFB40EB6ABD75B1278D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -237,25 +230,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+		A63EF3B9EA2DAEB74B8E0F96 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-miniStore/Pods-miniStore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -266,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0152AC0D3049568D006E41FC /* ConnectionStatusModule.m in Sources */,
-				0152AC1230495A0C006E41FC /* ConnectionStatusModule 2.swift in Sources */,
 				0152AC10304959F5006E41FC /* ConnectionStatusModule.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 			);
@@ -277,12 +265,17 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-miniStore.debug.xcconfig */;
+			baseConfigurationReference = 5F381F961DECD0DA7F127BF4 /* Pods-miniStore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BXDQNHDH4;
 				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"FMT_USE_CONSTEVAL=0",
+				);
 				INFOPLIST_FILE = miniStore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -297,7 +290,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = miniStore;
-				SWIFT_OBJC_BRIDGING_HEADER = "miniStore/miniStore-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "miniStore-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -306,11 +299,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-miniStore.release.xcconfig */;
+			baseConfigurationReference = 4A570B5599DA8CDE578B6713 /* Pods-miniStore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BXDQNHDH4;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"FMT_USE_CONSTEVAL=0",
+				);
 				INFOPLIST_FILE = miniStore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +323,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = miniStore;
-				SWIFT_OBJC_BRIDGING_HEADER = "miniStore/miniStore-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "miniStore-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

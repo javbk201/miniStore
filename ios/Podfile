@@ -17,6 +17,8 @@ end
 target 'miniStore' do
   config = use_native_modules!
 
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
+
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.
@@ -28,21 +30,53 @@ target 'miniStore' do
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
     )
-    # Xcode 26 workaround: patch fmt to disable consteval
-  fmt_base = File.join(installer.sandbox.root, 'fmt', 'include', 'fmt', 'base.h')
-    if File.exist?(fmt_base)
-      content = File.read(fmt_base)
-      unless content.include?('Xcode 26 workaround')
-        patched = content.gsub(
-          /^(#elif defined\(__cpp_consteval\)\n# define FMT_USE_CONSTEVAL) 1/,
-          "// Xcode 26 workaround: disable consteval\n\\1 0"
+
+    # Fix glog (1/2): asegura que el target de glog no se compile como módulo
+    Dir.glob("#{installer.sandbox.root}/Target Support Files/glog/*.xcconfig").each do |xcconfig_path|
+      content = File.read(xcconfig_path)
+      patched = content.gsub(/DEFINES_MODULE = YES/, 'DEFINES_MODULE = NO')
+      File.write(xcconfig_path, patched) if patched != content
+    end
+
+    # Fix glog (2/2): declara como "textual header" los headers de glog que
+    # 'logging.h' hace #include dentro de 'namespace google { ... }'
+    # (log_severity.h y vlog_is_on.h). Esto tiene prioridad sobre el wildcard
+    # "module * { export * }" del umbrella, excluyendo esos headers de ser
+    # tratados como submódulo — así el #include dentro del namespace 'google'
+    # deja de violar Clang Modules.
+    glog_modulemap_paths = [
+      "#{installer.sandbox.root}/Headers/Public/glog/glog.modulemap",
+      "#{installer.sandbox.root}/Target Support Files/glog/glog.modulemap",
+    ]
+    glog_textual_headers = %w[glog/log_severity.h glog/vlog_is_on.h]
+
+    glog_modulemap_paths.each do |modulemap_path|
+      next unless File.exist?(modulemap_path)
+      content = File.read(modulemap_path)
+      unless content.include?('GLOG_MODULEMAP_PATCHED')
+        textual_headers_block = glog_textual_headers
+          .map { |header| "  textual header \"#{header}\"" }
+          .join("\n")
+        patched = content.sub(
+          /\}\s*\z/,
+          "#{textual_headers_block} // GLOG_MODULEMAP_PATCHED\n}\n"
         )
-        if patched != content
-          File.chmod(0644, fmt_base)
-          File.write(fmt_base, patched)
-        end
+        File.write(modulemap_path, patched) if patched != content
+      end
+    end
+
+    # Fix fmt (esto se queda igual, ya funciona)
+    fmt_header = "#{installer.sandbox.pod_dir('fmt')}/include/fmt/base.h"
+    if File.exist?(fmt_header)
+      File.chmod(0644, fmt_header)
+      content = File.read(fmt_header)
+      unless content.include?('FMT_PATCHED_FOR_XCODE26')
+        patched = content.gsub(
+          'defined(__apple_build_version__) && __apple_build_version__ < 14000029L',
+          'defined(__apple_build_version__) // FMT_PATCHED_FOR_XCODE26'
+        )
+        File.write(fmt_header, patched)
       end
     end
   end

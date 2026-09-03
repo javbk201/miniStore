@@ -2452,7 +2452,7 @@ PODS:
     - SDWebImageWebPCoder (~> 0.14)
     - SocketRocket
     - Yoga
-  - RNGestureHandler (3.2.1):
+  - RNGestureHandler (2.30.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -3094,7 +3094,7 @@ SPEC CHECKSUMS:
   ReactCodegen: b4ff5f79e481567c6f14115f8314399b64e70268
   ReactCommon: 8fafefb37d562f9e4bbbc9081ca4501f178a97ec
   RNFastImage: b076a6378b1ce90debc27a927a437db3652bef14
-  RNGestureHandler: 605ada4c03040ae3e08b1a78433669ff7b984b4f
+  RNGestureHandler: e37bdb684df1ac17c7e1d8f71a3311b2793c186b
   RNReanimated: 9af1b9f7d221d1cc2f99d935bab08419cae7c1ce
   RNScreens: 7f643ee0fd1407dc5085c7795460bd93da113b8f
   RNSVG: 4dd2d79b3cb224bcb3ae666a2adda2ede9d3772f
@@ -3105,6 +3105,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 3196a843cc5f4bc433f1a41cf17cdf804a01a529
 
-PODFILE CHECKSUM: 6091d60d18cfd4fb5a475d212a6173f6e2cad413
+PODFILE CHECKSUM: 2743dc508460310288c4cc0cade7db0652ae0e34
 
 COCOAPODS: 1.17.0
