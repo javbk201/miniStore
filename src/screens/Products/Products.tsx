@@ -1,30 +1,48 @@
 import { ActivityIndicator, FlatList, View } from 'react-native'
 import React from 'react'
-import { Button, Text } from '@ui-kitten/components'
+import { Button, Icon, IconProps, Text } from '@ui-kitten/components'
 import { useProducts } from './useProducts'
 import { useProductsStyles } from './styles'
 import { SearchBar, Skeleton, ThemedBox } from '../../components'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { EmptyState } from '../../components/EmptyState'
 
+const RETRY_LABEL = 'Reintentar'
+
+const WifiIcon = (props: IconProps): React.JSX.Element => (
+	<Icon {...props} name="wifi" />
+)
+
+const NoWifiIcon = (props: IconProps): React.JSX.Element => (
+	<Icon {...props} name="wifi-off" />
+)
+
 export const ProductsScreen = (): React.JSX.Element => {
 	const {
 		productsData,
 		productLoading,
+		productsError,
 		isFetchingMore,
 		categoriesWithAll,
 		categoriesLoading,
+		categoriesError,
+		refetchCategories,
+		refetchProducts,
 		selectedCategory,
 		onPressCategory,
 		onPressProduct,
 		handleSearch,
-		loadMore
+		loadMore,
+		conectionType
 	} = useProducts()
 	const styles = useProductsStyles()
 	return (
 		<ThemedBox>
 			{/* Header Screen */}
-			<Text category="h1">Productos</Text>
+			<View>
+				<Text category="h1">Productos</Text>
+				<Button style={styles.wifiIndicator} accessoryLeft={conectionType === 'WIFI' ? WifiIcon : NoWifiIcon} />
+			</View>
 			{/* Search bar */}
 			<View style={styles.inputContainer}>
 				<SearchBar onSearch={handleSearch} />
@@ -46,6 +64,15 @@ export const ProductsScreen = (): React.JSX.Element => {
 							/>
 						)}
 					/>
+				) : categoriesError ? (
+					<View style={styles.categoryErrorRow}>
+						<Text style={styles.categoryErrorText}>
+							No se pudieron cargar las categorías
+						</Text>
+						<Button size="tiny" onPress={refetchCategories}>
+							{RETRY_LABEL}
+						</Button>
+					</View>
 				) : (
 					<FlatList
 						data={categoriesWithAll}
@@ -82,6 +109,13 @@ export const ProductsScreen = (): React.JSX.Element => {
 					contentContainerStyle={styles.skeletonProducts}
 					renderItem={_ => <Skeleton width={345} height={200} />}
 				/>
+			) : productsError ? (
+				<EmptyState
+					title="No se pudieron cargar los productos"
+					description="Revisa tu conexión e intenta nuevamente"
+				>
+					<Button onPress={refetchProducts}>{RETRY_LABEL}</Button>
+				</EmptyState>
 			) : (
 				<FlatList
 					data={productsData?.products}
