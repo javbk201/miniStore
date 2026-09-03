@@ -15,7 +15,7 @@ MiniStore es una app que lista productos obtenidos de la api de DummyJSON. La ap
 
 1. **Clona el repositorio**
 ```bash
-git clone [repository-url]
+git clone https://github.com/javbk201/miniStore.git
 cd miniStore
 ```
 
@@ -43,9 +43,11 @@ pnpm ios
 
 ### Utilities
 
-### Available Environments
+#### Available Environments
 
 - **local**: Local development (solo local por ser un proyecto de prueba)
+
+#### Commands
 
 ```bash
 # Start Metro bundler
@@ -55,9 +57,6 @@ pnpm start
 pnpm lint # corre el linter
 pnpm lint:format # Realiza check --check
 pnpm format # Aplica formato --fix
-
-# Testing
-pnpm test
 
 # Clear cache
 pnpm clean:cache
