@@ -1,97 +1,148 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# miniStore
 
-# Getting Started
+MiniStore es una app que lista productos obtenidos de la api de DummyJSON. La app permite filtrar los productos dependiendo de las categorias, que también vienen de la misma API, y así mostrar un listado por categoria. También permite buscar productos con la barra de busqueda en la pantalla de Productos y permite marcar productos cómo favoritos.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+### Requisitos previos
 
-## Step 1: Start Metro
+- Node: >= 20
+- Package manager (pnpm): 11.24.0
+- React Native CLI: 0.81.6
+- Ruby / CocoaPods
+- Android Studio: For Android development
+- Xcode: For iOS development (macOS only)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### Instalación
 
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+1. **Clona el repositorio**
+```bash
+git clone [repository-url]
+cd miniStore
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+2. **Install dependencies**
+```bash
+pnpm install
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+3. **iOS: Install native dependencies**
+```bash
+pnpm pod
 ```
 
-Then, and every time you update your native dependencies, run:
+### Correr en Android
 
-```sh
-bundle exec pod install
+```bash
+pnpm android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Correr en iOS
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```bash
+pnpm ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Utilities
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Available Environments
 
-## Step 3: Modify your app
+- **local**: Local development (solo local por ser un proyecto de prueba)
 
-Now that you have successfully run the app, let's make changes!
+```bash
+# Start Metro bundler
+pnpm start
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+# Linting y formatting
+pnpm lint # corre el linter
+pnpm lint:format # Realiza check --check
+pnpm format # Aplica formato --fix
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+# Testing
+pnpm test
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+# Clear cache
+pnpm clean:cache
+pnpm clean:modules
 
-## Congratulations! :tada:
+# Complete reset
+pnpm reset
 
-You've successfully run and modified your React Native App. :partying_face:
+# Pods (iOS)
+pnpm pod
+pnpm pod-update
+pnpm pod-repo-update
+```
 
-### Now what?
+## Tests
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```bash
+pnpm test
+```
 
-# Troubleshooting
+## Decisiones técnicas
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+**Estado:** Redux Toolkit con RTK Query
 
-# Learn More
+Principalmente porque es con la librería con la que más estoy familiarizado. Redux Toolkit, además tiene la ventaja de integrar el manejo de estados con la persistencia de las peticiones. Puede lograr lo que haría Zustand y React Query con una sola librería.
 
-To learn more about React Native, take a look at the following resources:
+**Networking:** Axios
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Estandar actual. Axios ofrece ventajas que fetch no da, por ejemplo el parseo automatico de JSON, además de tener la posibilidad de incluir interceptors para el manejo de errores.
+
+**Persistecia Local:** MMKV
+
+MMKV es la librería que actuamente tiene el mejor rendimiento en la lectura de valores del local storage. Recomendada en la prueba se decidió implementar debido a las ventajas que ofrece. Preferible para proyectos nuevos.
+
+**Arquitectura de carpetas:**
+
+Se decidió hacer una adaptación de mi modelo personal con el propuesto en la prueba
+
+```
+src/
+├── api/              # Contiene la configuración básica de Axios y de las peticiones http
+├── components/       # Componentes básicos de la app.
+├── context/          # Contextos generales de la app. 
+├── domain/           # Tipos/interfaces del negocio
+├── hooks/            # Custom React hooks generales de la app
+├── navigation/       # Navigation configuration
+├── screens/          # Pantallas principales.
+├── storage/          # configuración de MMKV
+├── store/            # Redux store and slices
+└── utils/            # Utility functions
+```
+
+Hay componentes en la carpeta de components que no son necesariamente reitilizables en otras pantallas, como por ejemplo ratingStar. En el estado actual del proyecto no es un componente que se use en otras pantallas, por lo que básicamente puede quedar dentro de la carpeta de src/screens/ProductDetails/components, esto según mi modelo personal de organización.
+
+**Componentes:**
+
+Hay algunas decisiones técnicas sobre los componentes que me gustaría resaltar. En el caso de ThemedBox, las tres pantallas principales tenían la misma estructura, componente, styles y params. Con el fin de no repetir esto en las 3 pantallas y no tener los estilos duplicados se creó este componente que permite envolver las pantallas y además les aplica el background dependiendo del theme.
+
+**Navegación:**
+
+El tabBar contiene las tres pantallas: Productos, Detalle y Favoritos. Al entrar en el detalle de cada producto, sea desde la pantalla de Productos o de Favoritos siempre navega a la tab de Detalles.
+
+**Animaciones:**
+
+La animación del carusel de imagenes y el botón de favoritos del detalle está completamente echo con Reanimated. La animación del skeleton, en cambio está echa con la API nativa. La prueba especificaba solamente la animación de ese componente. La animación del skeleton fue reutilizada de un repositorio de otro proyecto con el fin de ahorrar tiempo y que que el skeleton no se viera soso.
+
+**Borrado de favoritos:**
+
+Se eligió el Swipe-to-delete debido a que me parece que en el caso de los dispositivos moviles un gesto de deslizar a la izquiera es más natura que un botón. Hay ciertos comportamientos o acciones que se asocian más con los dispositivos moviles.
+
+**UI Theme:**
+
+Con el fin de no tener que crear componentes básicos desde cero y hacerlos personalizables, use una librería de componentes llamada UI Kittens. Esta librería me permite incluir Iconos, Inputs personalizables, Text y View que se adaptan al tema, entre otras ventajas adicionales. Lo que más me gusta de este UI Kit es la facilidad de uso e implementación de los iconos. Hay una gran varidad de iconos disponibles y también son bastante estilizados. Adicionalmente esta librería me permitió trabajar la selección del thema (light, dark) de forma más sencilla y generalizada. Haciendo uso de los colores del thema que se adaptan automaticamente pude ajustar un estilo uniforme en toda la app. A nivel técnico, la app detecta el tema del télefono, pero el usuario cuenta con un FAB para el toggle del tema. El tema se cambia con la ayuda del context, pero también se guarda como un valor local para que el valor persista, aún si se cierra la app.
+
+**Módulo nativo:**
+
+El modulo nativo creado corresponde a la obtención del tipo de red a la que el usuario está conectado. En la pantalla de Product se agregó un botón que muestra un icono con el simbolo de Wifi en caso de estar conectado a la red WIFI, pero si se conecta a los datos el icono mostrará el icono de WIFI off. Cabe resaltar que el cambio no es automatico. Solo expuse el dato y no se actualiza a menos de que se haga focus en la pantalla de Productos.
+
+## Screenshots / GIF
+
+![imagen1](src/screenshots/image1.png)
+![imagen2](src/screenshots/image2.png)
+![imagen3](src/screenshots/image3.png)
+![imagen4](src/screenshots/image4.png)
+![imagen5](src/screenshots/image5.png)
+![imagen6](src/screenshots/image6.png)
+![imagen7](src/screenshots/image7.png)
+![imagen8](src/screenshots/image8.png)
