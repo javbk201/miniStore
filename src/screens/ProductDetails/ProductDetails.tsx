@@ -27,10 +27,8 @@ export const ProductDetailsScreen = (): React.JSX.Element => {
 		hasDiscount,
 		formattedDiscountedPrice,
 		formattedOriginalPrice,
-		isContentReady,
 		onFirstImageLoad
 	} = useProductDetail()
-		console.log("🚀 ~ ProductDetailsScreen ~ isLoading:", isLoading)
 
 	if (isLoading) {
 		return (
